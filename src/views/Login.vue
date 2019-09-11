@@ -76,7 +76,9 @@
         </div>
       </el-main>
 
-      <el-footer>Footer</el-footer>
+      <el-footer>
+        <p class="footerP">© Copyright 2017-2018 Chengdu New Epoch High Tech Development Co.,Ltd.All Rights Reserver.蜀ICP备06006284号-3</p>
+      </el-footer>
     </el-container>
   </div>
 </template>
@@ -124,9 +126,9 @@ export default {
         // background-color: #fff;
         margin-top: 200px;
         .loginBx {
-          height: 260px;
+          // height: 260px;
           width: 380px;
-          padding: 20px;
+          padding: 20px 20px 5px 20px;
           box-sizing: border-box;
           background-color: #fff;
           .loginrightbx {
@@ -149,10 +151,16 @@ export default {
     }
   }
   .imgstyle{
+    margin-top: 50px;
     text-align: center;
   }
   p{
-    padding-bottom: 10px;
+    padding: 10px;
   }
+}
+
+.footerP{
+  text-align: center;
+  margin-top: 100px;
 }
 </style>

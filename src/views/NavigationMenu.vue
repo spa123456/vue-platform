@@ -8,9 +8,10 @@
           class="el-menu-vertical-demo menu-height"
           @open="handleOpen"
           @close="handleClose"
-          background-color="#545c64"
+          background-color="#34462c"
           text-color="#fff"
           active-text-color="#ffd04b"
+          router=true
         >
           <div style="height:50px;">
             <img src height="100px" width alt />
@@ -22,7 +23,7 @@
               <i class="el-icon-location"></i>
               <span>停车场管理</span>
             </template>
-            <el-menu-item index="1-1">车辆信息</el-menu-item>
+            <el-menu-item index="carmessage">车辆信息</el-menu-item>
             <el-menu-item index="1-2">人员管理</el-menu-item>
             <el-menu-item index="1-3">通道管理</el-menu-item>
             <el-menu-item index="1-4">包月车辆</el-menu-item>
@@ -55,7 +56,7 @@
               <i class="el-icon-location"></i>
               <span>报表查询</span>
             </template>
-            <el-menu-item index="3-1">营业总览</el-menu-item>
+            <el-menu-item index="businesspandect">营业总览</el-menu-item>
             <el-menu-item index="3-2">收入统计</el-menu-item>
             <el-menu-item index="3-3">包月统计</el-menu-item>
             <el-menu-item index="3-4">临停统计</el-menu-item>
@@ -114,7 +115,9 @@
                 <el-row>
                   <el-col :span="4">
                     <div class="nav-style">
-                      <span>Home</span>
+                      <span>
+                        <router-link tag="span" :to="{path:'login'}">Home</router-link>
+                      </span>
                     </div>
                   </el-col>
                   <el-col :span="4" class="nav-style">
@@ -173,6 +176,9 @@ export default {
 .nav-style{
   line-height: 50px;
   text-align: center;
+  span{
+    cursor: pointer;
+  }
 }
 .left-menu {
   width: 200px;
@@ -189,6 +195,7 @@ export default {
   padding: 0;
 }
 .el-main {
+  color: #34462c;
   padding: 0;
   background-color: rgb(231, 231, 231);
 }
