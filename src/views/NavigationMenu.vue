@@ -11,7 +11,7 @@
           background-color="#34462c"
           text-color="#fff"
           active-text-color="#ffd04b"
-          router=true
+          router
         >
           <div style="height:50px;">
             <img src height="100px" width alt />
@@ -173,10 +173,10 @@ export default {
 .menu-height {
   height: 100vh;
 }
-.nav-style{
+.nav-style {
   line-height: 50px;
   text-align: center;
-  span{
+  span {
     cursor: pointer;
   }
 }
@@ -186,8 +186,8 @@ export default {
     border-right-width: 0;
   }
 }
-.right-menu{
-   .el-menu {
+.right-menu {
+  .el-menu {
     border-right-width: 0;
   }
 }
@@ -206,13 +206,13 @@ export default {
   height: 50px;
   line-height: 50px;
 }
-.el-menu--horizontal>.el-submenu .el-submenu__title{
+.el-menu--horizontal > .el-submenu .el-submenu__title {
   height: 50px;
   line-height: 50px;
   border: none;
   color: #000;
 }
-.el-menu.el-menu--horizontal{
-  border: none
+.el-menu.el-menu--horizontal {
+  border: none;
 }
 </style>
