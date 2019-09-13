@@ -17,7 +17,9 @@
       </el-row>
     </el-header>
 
-    <el-main></el-main>
+    <el-main>
+      <div id="echartsbx"></div>
+    </el-main>
 
     <el-footer height="282px">
       <el-row>
@@ -33,7 +35,94 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  mounted() {
+    this.getecharts();
+  },
+  methods: {
+    getecharts() {
+      let colors = ["#5793f3", "#d14a61", "#675bba"];
+      let mapecharts = this.$echarts.init(document.getElementById("echartsbx"));
+      mapecharts.setOption({
+        color: colors,
+
+        tooltip: {
+          trigger: "none",
+          axisPointer: {
+            type: "cross"
+          }
+        },
+        legend: {
+          data: ["2016 降水量"]
+        },
+        grid: {
+          top: 70,
+          bottom: 50
+        },
+        xAxis: [
+          {
+            type: "category",
+            boundaryGap: false,
+            axisTick: {
+              alignWithLabel: true
+            },
+            axisLine: {
+              onZero: false,
+              lineStyle: {
+                color: colors[1]
+              }
+            },
+            axisPointer: {
+              label: {
+                formatter: function(params) {
+                  return (
+                    "降水量  " +
+                    params.value +
+                    (params.seriesData.length
+                      ? "：" + params.seriesData[0].data
+                      : "")
+                  );
+                }
+              }
+            },
+            data: [
+              "2016-7",
+              "2016-8",
+              "2016-9",
+              "2016-10",
+              "2016-11",
+              "2016-12"
+            ]
+          },
+        ],
+        yAxis: [
+          {
+            type: "value",
+          }
+        ],
+        series: [
+          {
+            name: "2016 降水量",
+            type: "line",
+            smooth: true,
+            areaStyle: {},
+            data: [
+              231.6,
+              46.6,
+              55.4,
+              18.4,
+              10.3,
+              0.7
+            ]
+          }
+        ]
+      });
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>
@@ -57,6 +146,12 @@ export default {};
     padding: 0;
     margin: 15px 0;
     box-shadow: 1px 1px 1px burlywood;
+    #echartsbx {
+      width: 80%;
+      height: 300px;
+      margin: 0 auto;
+      // background-color: red;
+    }
   }
   .el-footer {
     box-sizing: border-box;
