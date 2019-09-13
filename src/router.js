@@ -33,6 +33,11 @@ export default new Router({
           name:'carmessage',
           component:() => import('./components/carmanagment/Carmessage.vue')
         },
+        {
+          path:'/peoplemessage',
+          name:'peoplemessage',
+          component:() => import('./components/carmanagment/Peoplemessage.vue')
+        },
       ]
       
     }
