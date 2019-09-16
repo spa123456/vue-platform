@@ -24,7 +24,7 @@
               <span>停车场管理</span>
             </template>
             <el-menu-item index="carmessage">车辆信息</el-menu-item>
-            <el-menu-item index="1-2">人员管理</el-menu-item>
+            <el-menu-item index="peoplemessage">人员管理</el-menu-item>
             <el-menu-item index="1-3">通道管理</el-menu-item>
             <el-menu-item index="1-4">包月车辆</el-menu-item>
             <el-menu-item index="1-5">免费车辆</el-menu-item>
@@ -148,7 +148,7 @@
         </el-header>
 
         <!-- 路由组件的放置/子路由 -->
-        <el-main>
+        <el-main class="routerBx">
           <router-view />
         </el-main>
       </el-container>
@@ -214,5 +214,8 @@ export default {
 }
 .el-menu.el-menu--horizontal {
   border: none;
+}
+.routerBx{
+  height:calc(100vh - 50px);//设置子路由组建在模块中的高度
 }
 </style>
