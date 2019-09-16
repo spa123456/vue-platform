@@ -766,6 +766,7 @@ export default {
       border-bottom: 1px double #ccc;
     }
     .dialog-setmoney {
+      z-index: 1;
       .el-input {
         width: 150px;
       }
@@ -778,6 +779,7 @@ export default {
       color: #ccc;
     }
     .grid-content-row {
+      z-index: 100;
       border: none;
     }
   }
