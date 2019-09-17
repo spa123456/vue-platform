@@ -280,7 +280,20 @@
 
           <!-- 对话框页面 -->
           <el-button type="primary" class="addbtn" @click="addparmeter = true">添加</el-button>
-          <!-- ///// -->
+
+          <!-- 生成的管理条例 -->
+
+          <div>
+            <el-table :data="parmeterData" style="width: 100%" :show-header="false">
+              <el-table-column>
+                <template slot-scope="scope">
+                  <p>规则名称:{{scope.row.name}}</p>
+                  <p>{{scope.row.date}}</p>
+                </template>
+              </el-table-column>
+            </el-table>
+          </div>
+          <!-- ///// ....................................................-->
           <el-dialog title="计费规则设置" :visible.sync="addparmeter">
             <span class="dialog-span">
               <el-row>
@@ -292,7 +305,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content">
-                    <el-input v-model="settimem1" @blur="setparmeter1()"></el-input>
+                    <el-input v-model="settimemcomputer" @blur="setparmeter1()"></el-input>
                   </div>
                 </el-col>
               </el-row>
@@ -307,7 +320,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content">
-                    <el-select v-model="typevalue" placeholder="请选择">
+                    <el-select v-model="typevalue" placeholder="请选择" @change="gettypevalue">
                       <el-option
                         v-for="item in typeoptions"
                         :key="item.value"
@@ -329,7 +342,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content">
-                    <el-select v-model="colorvalue" placeholder="请选择">
+                    <el-select v-model="colorvalue" placeholder="请选择" @change="getcolor">
                       <el-option
                         v-for="item in coloroptions"
                         :key="item.value"
@@ -351,7 +364,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content">
-                    <el-select v-model="cartypevalue" placeholder="请选择">
+                    <el-select v-model="cartypevalue" placeholder="请选择" @change="getcartype">
                       <el-option
                         v-for="item in cartypeoptions"
                         :key="item.value"
@@ -373,7 +386,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content">
-                    <el-input v-model="settimem1" @blur="setparmeter1()">
+                    <el-input v-model="setmuney" @blur="setparmeter1()">
                       <template slot="append">元</template>
                     </el-input>
                   </div>
@@ -392,7 +405,7 @@
                   <div class="grid-content">
                     <el-row class="grid-content-row">
                       <el-col :span="12">
-                        <el-select v-model="computervalue" placeholder="请选择">
+                        <el-select v-model="computervalue" placeholder="请选择" @change="getcomputer">
                           <el-option
                             v-for="item in computeroptions"
                             :key="item.value"
@@ -402,7 +415,11 @@
                         </el-select>
                       </el-col>
                       <el-col :span="12">
-                        <el-select v-model="computertimevalue" placeholder="请选择">
+                        <el-select
+                          v-model="computertimevalue"
+                          placeholder="请选择"
+                          @change="getcomputertime"
+                        >
                           <el-option
                             v-for="item in computertimeoptions"
                             :key="item.value"
@@ -418,21 +435,21 @@
                   <el-row>
                     <el-col :span="4">免费时间：</el-col>
                     <el-col :span="20">
-                      <el-input placeholder="请输入时间"></el-input>分钟
+                      <el-input placeholder="请输入时间" v-model="timeminutes"></el-input>分钟
                     </el-col>
                   </el-row>
                   <el-row>
                     <el-col :span="4">起步价：</el-col>
                     <el-col :span="20">
-                      <el-input></el-input>元
-                      <el-input></el-input>小时
+                      <el-input placeholder="请输入价格" v-model="setmoneyone"></el-input>元
+                      <el-input placeholder="请输入时间" v-model="settimeone"></el-input>小时
                     </el-col>
                   </el-row>
                   <el-row>
                     <el-col :span="4">后续价：</el-col>
                     <el-col :span="20">
-                      <el-input></el-input>元
-                      <el-input></el-input>小时
+                      <el-input placeholder="请输入价格" v-model="setmoneytwo"></el-input>元
+                      <el-input placeholder="请输入时间" v-model="settimetwo"></el-input>小时
                     </el-col>
                   </el-row>
                 </div>
@@ -448,16 +465,29 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content">
-                    <el-input v-model="settimem1" @blur="setparmeter1()">
-                      <template slot="append">分钟</template>
-                    </el-input>
+                    <el-row class="grid-content-row">
+                      <el-col :span="12">
+                        <el-select v-model="orvalue" placeholder="请选择" @change="getor">
+                          <el-option
+                            v-for="item in oroptions"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"
+                          ></el-option>
+                        </el-select>
+                      </el-col>
+                      <el-col :span="12" class="orvalueinput">
+                        <el-input placeholder="请输入价格" v-model="setmoneythree"></el-input>
+                        <p>元</p>
+                      </el-col>
+                    </el-row>
                   </div>
                 </el-col>
               </el-row>
             </span>
             <div slot="footer" class="dialog-footer">
               <el-button @click="addparmeter = false">取 消</el-button>
-              <el-button type="primary" @click="addparmeter = false">确 定</el-button>
+              <el-button type="primary" @click="setparmeter()">确 定</el-button>
             </div>
           </el-dialog>
         </div>
@@ -564,6 +594,37 @@ export default {
           label: "按分钟计"
         }
       ], //计费计时方式
+      orvalue: "0",
+      oroptions: [
+        {
+          value: "0",
+          label: "不限价"
+        },
+        {
+          value: "1",
+          label: "8小时"
+        },
+        {
+          value: "2",
+          label: "12小时"
+        },
+        {
+          value: "3",
+          label: "24小时"
+        }
+      ], //对计价时间设置
+      parmeterData: [
+        {
+          date: "中国国际机场",
+          name:"啊啊啊"
+        },
+        {
+          date: "中国国际机场"
+        },
+        {
+          date: "中国国际机场"
+        }
+      ], //存放生成的管理条列的数据
       mainvalue: "", //管理设置下拉绑定值
       footervalue: "", //
       statusone: "100", //开启关闭的状态码
@@ -579,7 +640,23 @@ export default {
       settimem2: "1000", //设置包月车辆临停免费时长。
       settimen1: "1", //设置剩余空车位数。
       settimen2: "100", //设置停车场总车位数。
-      addparmeter: false
+      addparmeter: false,
+// 一下是获取生成的列表的数据的定义-------------------------
+      settimemcomputer:'',//计费规则name
+      getdata:[],//定义一个数组用于存储获取到的数据
+      getvalstoptype:'',//获取停车类型
+      getcolorvalue:'',//获取颜色
+      getcartypevalue:'',//获取车辆类型
+      setmuney:'',//误入场的金额设置
+      getcomputervalue:'',//获取计算计价方式
+      getcomputertimevalue:'',//获取计算计价计时方式
+      timeminutes:'',//免费时间
+      setmoneyone:'',
+      settimeone:'',
+      setmoneytwo:'',
+      settimetwo:'',
+      getorvalue:'',//获取离场限制方式
+      setmoneythree:''
     };
   },
   methods: {
@@ -644,7 +721,129 @@ export default {
     setparmeter5() {
       console.log(this.settimen2);
       //此处有一个修改成功的弹出
-    }
+    },
+
+
+    //生成计费算法列表的函数为下-----------------------------------------
+    /*
+    **  @description 点击确认生成方法列表------好像不需要
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    setparmeter() {
+      this.addparmeter = false; //关闭窗口
+      //将以下获取到的数据与input中的数据保存起来
+      let obj = {
+      settimemcomputer:this.settimemcomputer,//计费规则name
+      getvalstoptype:this.getvalstoptype,//获取停车类型
+      getcolorvalue:this.getcolorvalue,//获取颜色
+      getcartypevalue:this.getcartypevalue,//获取车辆类型
+      setmuney:this.setmuney,//误入场的金额设置
+      getcomputervalue:this.getcomputervalue,//获取计算计价方式
+      getcomputertimevalue:this.getcomputertimevalue,//获取计算计价计时方式
+      timeminutes:this.timeminutes,//免费时间
+      setmoneyone:this.setmoneyone,
+      settimeone:this.settimeone,
+      setmoneytwo:this.setmoneytwo,
+      settimetwo:this.settimetwo,
+      getorvalue:this.getorvalue,//获取离场限制方式
+      setmoneythree:this.setmoneythree,
+      }
+
+      this.getdata.push(obj)
+      console.log(this.getdata);
+    },
+    /*
+    **  @description 获取计费方式
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    gettypevalue(val){
+      let obj = {}
+      obj = this.typeoptions.find(item => {
+         return item.value === val;
+      }) 
+       this.getvalstoptype = obj.label
+      console.log(this.getvalstoptype);
+    },
+    /*
+    **  @description 获取颜色
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    getcolor(val){
+      let obj = {}
+      obj = this.coloroptions.find(item => {
+         return item.value === val;
+      }) 
+      
+       this.getcolorvalue = obj.label
+        console.log(this.getcolorvalue);
+    },
+    /*
+    **  @description 获取car类型
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    getcartype(val){
+      let obj = {}
+      obj = this.cartypeoptions.find(item => {
+         return item.value === val;
+      }) 
+      
+       this.getcartypevalue = obj.label
+        console.log(this.getcartypevalue);
+    },
+    /*
+    **  @description 获取计算计价方式
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    getcomputer(val){
+      let obj = {}
+      obj = this.computeroptions.find(item => {
+        return item.value === val;
+      })
+      this.getcomputervalue = obj.label
+      console.log(this.getcomputervalue);
+      
+    },
+    /*
+    **  @description 获取计算计时方式
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    getcomputertime(val){
+      let obj = {}
+      obj = this.computertimeoptions.find(item => {
+        return item.value === val;
+      })
+      this.getcomputertimevalue = obj.label
+      console.log(this.getcomputertimevalue);
+      
+    },
+    /*
+    **  @description 获取离场限制方式
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    getor(val){
+      let obj = {}
+      obj = this.oroptions.find(item => {
+        return item.value === val;
+      })
+      this.getorvalue = obj.label;
+      console.log(this.getorvalue);      
+    },
+
+
   }
 };
 </script>
@@ -781,6 +980,12 @@ export default {
     .grid-content-row {
       z-index: 100;
       border: none;
+      .orvalueinput {
+        display: flex;
+        p {
+          line-height: 40px;
+        }
+      }
     }
   }
 }
