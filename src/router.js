@@ -38,6 +38,11 @@ export default new Router({
           name:'peoplemessage',
           component:() => import('./components/carmanagment/Peoplemessage.vue')
         },
+        {
+          path:'/channelmessage',
+          name:'channelmessage',
+          component:() => import('./components/carmanagment/Channelmessage.vue')
+        },
       ]
       
     }

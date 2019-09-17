@@ -25,7 +25,7 @@
             </template>
             <el-menu-item index="carmessage">车辆信息</el-menu-item>
             <el-menu-item index="peoplemessage">人员管理</el-menu-item>
-            <el-menu-item index="1-3">通道管理</el-menu-item>
+            <el-menu-item index="channelmessage">通道管理</el-menu-item>
             <el-menu-item index="1-4">包月车辆</el-menu-item>
             <el-menu-item index="1-5">免费车辆</el-menu-item>
             <el-menu-item index="1-6">黑名车辆</el-menu-item>
