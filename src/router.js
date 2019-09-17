@@ -43,6 +43,21 @@ export default new Router({
           name:'channelmessage',
           component:() => import('./components/carmanagment/Channelmessage.vue')
         },
+        {
+          path:'/includecar',
+          name:'includecar',
+          component:() => import('./components/carmanagment/Includecar.vue')
+        },
+        {
+          path:'/freecar',
+          name:'freecar',
+          component:() => import('./components/carmanagment/Freecar.vue')
+        },
+        {
+          path:'/blacklistcar',
+          name:'blacklistcar',
+          component:() => import('./components/carmanagment/Blacklistcar.vue')
+        },
       ]
       
     }
