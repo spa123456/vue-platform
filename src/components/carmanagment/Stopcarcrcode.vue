@@ -46,46 +46,33 @@
     <el-container class="right-container">
       <el-header height="60px" class="querycarmessage">
         <div class="header-input">
-          <el-input
-            placeholder="请输入房号、车主、车牌或者包月车位查询"
-            prefix-icon="el-icon-search"
-            v-model="inputvalue"
-          ></el-input>
+          <el-input placeholder="请输入车牌、备注信息" prefix-icon="el-icon-search" v-model="inputvalue"></el-input>
         </div>
         <div>
           <el-button type="primary">查询</el-button>
           <el-button type="primary">添加</el-button>
-          <el-button type="primary">导入</el-button>
           <el-button type="primary">导出</el-button>
-          <el-button type="primary">下载模板</el-button>
         </div>
       </el-header>
       <el-main>
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="全部" name="first">
             <el-table :data="cartableData" style="width: 100%" stripe>
-              <el-table-column label="全部" prop="date" align="center"></el-table-column>
-              <el-table-column label="车主" prop="date" align="center"></el-table-column>
-              <el-table-column label="包月类型" prop="date" align="center"></el-table-column>
               <el-table-column label="车牌号" prop="date" align="center"></el-table-column>
-              <el-table-column label="占用车位" prop="date" align="center"></el-table-column>
-              <el-table-column label="包月金额" prop="date" align="center"></el-table-column>
-              <el-table-column label="到期时间" prop="date" align="center"></el-table-column>
-              <el-table-column label="车辆类型" prop="date" align="center"></el-table-column>
-              <el-table-column label="包月车位" prop="date" align="center"></el-table-column>
+              <el-table-column label="期限" prop="date" align="center"></el-table-column>
+              <el-table-column label="开始日期" prop="date" align="center"></el-table-column>
+              <el-table-column label="截止日期" prop="date" align="center"></el-table-column>
+              <el-table-column label="免费类别" prop="date" align="center"></el-table-column>
+              <el-table-column label="备注" prop="date" align="center"></el-table-column>
               <el-table-column label="操作" align="center" width="240">
                 <template slot-scope="scope">
-                  <el-button size="mini" type="primary " @click="settime(scope.row)">续费</el-button>
-                  <el-button size="mini" type="primary ">编辑</el-button>
+                  <el-button size="mini" type="primary " @click="settime(scope.row)">编辑</el-button>
                   <el-button size="mini" type="danger ">删除</el-button>
                 </template>
               </el-table-column>
             </el-table>
           </el-tab-pane>
-          <el-tab-pane label="普通包月" name="second">配置管理</el-tab-pane>
-          <el-tab-pane label="分时包月" name="third">角色管理</el-tab-pane>
-          <el-tab-pane label="即将到期" name="fourth">定时任务补偿</el-tab-pane>
-          <el-tab-pane label="已到期" name="five">定时任务补偿</el-tab-pane>
+          <el-tab-pane label="已失效" name="second">已失效</el-tab-pane>
         </el-tabs>
       </el-main>
       <el-footer height="60px" class="ationfooter">
@@ -121,7 +108,7 @@ export default {
           date: "aaaaaaaaaa"
         }
       ], //包月车辆业主数据
-      currentPage: 1
+      currentPage: 1,
     };
   },
   methods: {
@@ -132,12 +119,13 @@ export default {
       console.log(tab, event);
     },
 
+
     /*
-     **  @description 页码界面的操作
-     **  @param {}
-     **  @return
-     **  @author shipingan
-     */
+    **  @description 页码界面的操作
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },
@@ -187,9 +175,9 @@ export default {
   }
   .right-container {
     background-color: rgb(240, 240, 240);
-  }
-  .ationfooter {
-    text-align: right;
+    .ationfooter{
+        text-align: right;
+    }
   }
 }
 </style>

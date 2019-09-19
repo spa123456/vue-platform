@@ -58,6 +58,11 @@ export default new Router({
           name:'blacklistcar',
           component:() => import('./components/carmanagment/Blacklistcar.vue')
         },
+        {
+          path:'/stopcarcrcode',
+          name:'stopcarcrcode',
+          component:() => import('./components/carmanagment/Stopcarcrcode.vue')
+        },
       ]
       
     }
