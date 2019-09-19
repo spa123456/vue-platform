@@ -63,7 +63,7 @@
       <el-main>
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="全部" name="first">
-            <el-table :data="cartableData" style="width: 100%" stripe>
+            <el-table :data="cartableData" style="width: 100%" stripe border>
               <el-table-column label="全部" prop="date" align="center"></el-table-column>
               <el-table-column label="车主" prop="date" align="center"></el-table-column>
               <el-table-column label="包月类型" prop="date" align="center"></el-table-column>
