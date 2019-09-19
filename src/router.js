@@ -63,6 +63,11 @@ export default new Router({
           name:'stopcarcrcode',
           component:() => import('./components/carmanagment/Stopcarcrcode.vue')
         },
+        {
+          path:'/cartype',
+          name:'cartype',
+          component:() => import('./components/carmanagment/Cartype.vue')
+        },
       ]
       
     }

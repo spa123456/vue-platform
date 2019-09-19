@@ -51,9 +51,7 @@
         <div>
           <el-button type="primary">查询</el-button>
           <el-button type="primary">添加</el-button>
-          <el-button type="primary">导入</el-button>
           <el-button type="primary">导出</el-button>
-          <el-button type="primary">下载模板</el-button>
         </div>
       </el-header>
       <el-main>
@@ -64,7 +62,6 @@
               <el-table-column label="期限" prop="date" align="center"></el-table-column>
               <el-table-column label="开始日期" prop="date" align="center"></el-table-column>
               <el-table-column label="截止日期" prop="date" align="center"></el-table-column>
-              <el-table-column label="免费类别" prop="date" align="center"></el-table-column>
               <el-table-column label="备注" prop="date" align="center"></el-table-column>
               <el-table-column label="操作" align="center" width="240">
                 <template slot-scope="scope">

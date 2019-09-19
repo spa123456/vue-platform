@@ -30,7 +30,7 @@
             <el-menu-item index="freecar">免费车辆</el-menu-item>
             <el-menu-item index="blacklistcar">黑名车辆</el-menu-item>
             <el-menu-item index="stopcarcrcode">停车记录</el-menu-item>
-            <el-menu-item index="1-8">车辆类型</el-menu-item>
+            <el-menu-item index="cartype">车辆类型</el-menu-item>
             <el-menu-item index="1-9">易错车牌</el-menu-item>
             <el-menu-item index="1-10">临停车辆</el-menu-item>
             <el-menu-item index="1-11">包月规则</el-menu-item>
