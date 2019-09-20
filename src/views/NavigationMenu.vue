@@ -32,7 +32,7 @@
             <el-menu-item index="stopcarcrcode">停车记录</el-menu-item>
             <el-menu-item index="cartype">车辆类型</el-menu-item>
             <el-menu-item index="pallibleplatenumber">易错车牌</el-menu-item>
-            <el-menu-item index="1-10">临停车辆</el-menu-item>
+            <el-menu-item index="parkstopcar">临停车辆</el-menu-item>
             <el-menu-item index="1-11">包月规则</el-menu-item>
             <el-menu-item index="1-12">异常记录</el-menu-item>
           </el-submenu>
@@ -214,6 +214,10 @@ export default {
 }
 .el-menu.el-menu--horizontal {
   border: none;
+}
+.el-submenu .el-menu-item{
+  height: 40px;
+  line-height: 40px;
 }
 .routerBx{
   height:calc(100vh - 50px);//设置子路由组建在模块中的高度

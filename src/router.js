@@ -73,6 +73,11 @@ export default new Router({
           name:'pallibleplatenumber',
           component:() => import('./components/carmanagment/Pallibleplatenumber.vue')
         },
+        {
+          path:'/parkstopcar',
+          name:'parkstopcar',
+          component:() => import('./components/carmanagment/Parkstopcar.vue')
+        },
       ]
       
     }
