@@ -88,6 +88,16 @@ export default new Router({
           name:'exceptionrecord',
           component:() => import('./components/carmanagment/Exceptionrecord.vue')
         },
+        {
+          path:'/businessinformation',
+          name:'businessinformation',
+          component:() => import('./components/businessapplication/Businessinformation.vue')
+        },
+        {
+          path:'/payrank',
+          name:'payrank',
+          component:() => import('./components/businessapplication/Payrank.vue')
+        },
       ]
       
     }

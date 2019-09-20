@@ -57,7 +57,7 @@
       <el-main>
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="全部" name="first">
-            <el-table :data="cartableData" style="width: 100%" stripe>
+            <el-table :data="cartableData" style="width: 100%" stripe size="mini">
               <el-table-column label="车牌号" prop="date" align="center"></el-table-column>
               <el-table-column label="期限" prop="date" align="center"></el-table-column>
               <el-table-column label="开始日期" prop="date" align="center"></el-table-column>
