@@ -68,6 +68,11 @@ export default new Router({
           name:'cartype',
           component:() => import('./components/carmanagment/Cartype.vue')
         },
+        {
+          path:'/pallibleplatenumber',
+          name:'pallibleplatenumber',
+          component:() => import('./components/carmanagment/Pallibleplatenumber.vue')
+        },
       ]
       
     }
