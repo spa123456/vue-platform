@@ -65,7 +65,7 @@
               <el-table-column label="备注" prop="date" align="center"></el-table-column>
               <el-table-column label="操作" align="center" >
                 <template slot-scope="scope">
-                  <el-button size="mini" type="primary ">编辑</el-button>
+                  <el-button size="mini" type="primary " @click="writeplate(scope.row)">编辑</el-button>
                   <el-button size="mini" type="danger ">删除</el-button>
                 </template>
               </el-table-column>
@@ -114,7 +114,10 @@ export default {
     handleClick(tab, event) {
       console.log(tab, event);
     },
-
+    writeplate(row){
+        console.log(row);
+        
+    },
     /*
      **  @description 页码界面的操作
      **  @param {}
