@@ -33,8 +33,8 @@
             <el-menu-item index="cartype">车辆类型</el-menu-item>
             <el-menu-item index="pallibleplatenumber">易错车牌</el-menu-item>
             <el-menu-item index="parkstopcar">临停车辆</el-menu-item>
-            <el-menu-item index="1-11">包月规则</el-menu-item>
-            <el-menu-item index="1-12">异常记录</el-menu-item>
+            <el-menu-item index="includerule">包月规则</el-menu-item>
+            <el-menu-item index="exceptionrecord">异常记录</el-menu-item>
           </el-submenu>
 
           <!-- 商户应用 -->

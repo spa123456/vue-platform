@@ -78,6 +78,16 @@ export default new Router({
           name:'parkstopcar',
           component:() => import('./components/carmanagment/Parkstopcar.vue')
         },
+        {
+          path:'/includerule',
+          name:'includerule',
+          component:() => import('./components/carmanagment/Includerule.vue')
+        },
+        {
+          path:'/exceptionrecord',
+          name:'exceptionrecord',
+          component:() => import('./components/carmanagment/Exceptionrecord.vue')
+        },
       ]
       
     }
