@@ -108,6 +108,11 @@ export default new Router({
           name:'givingrecords',
           component:() => import('./components/businessapplication/Givingrecords.vue')
         },
+        {
+          path:'/rulesset',
+          name:'rulesset',
+          component:() => import('./components/businessapplication/Rulesset.vue')
+        },
       ]
       
     }

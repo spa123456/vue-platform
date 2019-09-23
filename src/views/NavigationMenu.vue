@@ -47,7 +47,7 @@
             <el-menu-item index="payrank">充值记录</el-menu-item>
             <el-menu-item index="presenter">赠送</el-menu-item>
             <el-menu-item index="givingrecords">赠送记录</el-menu-item>
-            <el-menu-item index="2-5">规则记录</el-menu-item>
+            <el-menu-item index="rulesset">规则记录</el-menu-item>
           </el-submenu>
 
           <!-- 报表查询 -->
