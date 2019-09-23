@@ -98,6 +98,11 @@ export default new Router({
           name:'payrank',
           component:() => import('./components/businessapplication/Payrank.vue')
         },
+        {
+          path:'/presenter',
+          name:'presenter',
+          component:() => import('./components/businessapplication/Presenter.vue')
+        },
       ]
       
     }
