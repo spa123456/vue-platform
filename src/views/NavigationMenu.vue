@@ -57,7 +57,7 @@
               <span>报表查询</span>
             </template>
             <el-menu-item index="businesspandect">营业总览</el-menu-item>
-            <el-menu-item index="3-2">收入统计</el-menu-item>
+            <el-menu-item index="incomestatistics">收入统计</el-menu-item>
             <el-menu-item index="3-3">包月统计</el-menu-item>
             <el-menu-item index="3-4">临停统计</el-menu-item>
             <el-menu-item index="3-5">值班记录</el-menu-item>

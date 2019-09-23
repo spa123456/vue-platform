@@ -113,6 +113,11 @@ export default new Router({
           name:'rulesset',
           component:() => import('./components/businessapplication/Rulesset.vue')
         },
+        {
+          path:'/incomestatistics',
+          name:'incomestatistics',
+          component:() => import('./components/reportquery/Incomestatistics.vue')
+        },
       ]
       
     }
