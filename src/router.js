@@ -103,6 +103,11 @@ export default new Router({
           name:'presenter',
           component:() => import('./components/businessapplication/Presenter.vue')
         },
+        {
+          path:'/givingrecords',
+          name:'givingrecords',
+          component:() => import('./components/businessapplication/Givingrecords.vue')
+        },
       ]
       
     }
