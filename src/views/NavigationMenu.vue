@@ -2,7 +2,7 @@
   <div>
     <el-container>
       <!-- 侧边菜单栏 -->
-      <el-aside width="210px">
+      <el-aside width="210px" class="menuall">
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo menu-height"
@@ -59,7 +59,7 @@
             <el-menu-item index="businesspandect">营业总览</el-menu-item>
             <el-menu-item index="incomestatistics">收入统计</el-menu-item>
             <el-menu-item index="monthlystatistics">包月统计</el-menu-item>
-            <el-menu-item index="3-4">临停统计</el-menu-item>
+            <el-menu-item index="parkstatistics">临停统计</el-menu-item>
             <el-menu-item index="3-5">值班记录</el-menu-item>
           </el-submenu>
 
@@ -222,4 +222,5 @@ export default {
 .routerBx{
   height:calc(100vh - 50px);//设置子路由组建在模块中的高度
 }
+
 </style>

@@ -123,6 +123,11 @@ export default new Router({
           name:'monthlystatistics',
           component:() => import('./components/reportquery/Monthlystatistics.vue')
         },
+        {
+          path:'/parkstatistics',
+          name:'parkstatistics',
+          component:() => import('./components/reportquery/Parkstatistics.vue')
+        },
       ]
       
     }
