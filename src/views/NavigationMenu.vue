@@ -78,7 +78,7 @@
               <i class="el-icon-location"></i>
               <span>储蓄卡用户管理</span>
             </template>
-            <el-menu-item index="5-1">储蓄信息</el-menu-item>
+            <el-menu-item index="savinginformation">储蓄信息</el-menu-item>
             <el-menu-item index="5-2">充值记录</el-menu-item>
             <el-menu-item index="5-3">消费记录</el-menu-item>
           </el-submenu>

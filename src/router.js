@@ -138,6 +138,11 @@ export default new Router({
           name:'refundmanagement',
           component:() => import('./components/transactionmanagement/Refundmanagement.vue')
         },
+        {
+          path:'/savinginformation',
+          name:'savinginformation',
+          component:() => import('./components/savingmanagement/Savinginformation.vue')
+        },
       ]
       
     }
