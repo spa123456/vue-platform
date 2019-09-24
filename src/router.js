@@ -153,6 +153,11 @@ export default new Router({
           name:'expensecalendar',
           component:() => import('./components/savingmanagement/Expensecalendar.vue')
         },
+        {
+          path:'/operationlog',
+          name:'operationlog',
+          component:() => import('./components/logquery/Operationlog.vue')
+        },
       ]
       
     }

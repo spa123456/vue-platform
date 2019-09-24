@@ -89,7 +89,7 @@
               <i class="el-icon-location"></i>
               <span>日志查询</span>
             </template>
-            <el-menu-item index="6-1">操作日志</el-menu-item>
+            <el-menu-item index="operationlog">操作日志</el-menu-item>
             <el-menu-item index="6-2">登录日志</el-menu-item>
           </el-submenu>
         </el-menu>
