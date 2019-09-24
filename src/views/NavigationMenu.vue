@@ -69,7 +69,7 @@
               <i class="el-icon-location"></i>
               <span>交易管理</span>
             </template>
-            <el-menu-item index="4-1">退款管理</el-menu-item>
+            <el-menu-item index="refundmanagement">退款管理</el-menu-item>
           </el-submenu>
 
           <!-- 储蓄卡用户管理 -->

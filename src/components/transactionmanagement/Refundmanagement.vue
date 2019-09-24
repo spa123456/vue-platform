@@ -60,19 +60,35 @@
         </div>
       </el-header>
       <el-main>
-        <el-table :data="cartableData" style="width: 100%" stripe class="nonly-secect" border>
-          <el-table-column label="车牌号" prop="date" align="center"></el-table-column>
-          <el-table-column label="状态" prop="date" align="center" :render-header="renderHeaderone"></el-table-column>
-          <el-table-column label="通道名称" prop="date" align="center"></el-table-column>
-          <el-table-column label="值班人员" prop="date" align="center"></el-table-column>
-          <el-table-column label="记录创建时间" prop="date" align="center"></el-table-column>
-          <el-table-column label="备注" prop="date" align="center"></el-table-column>
-          <el-table-column label="操作" align="center">
-            <template slot-scope="scope">
-              <el-button size="mini" type="primary " @click="settime(scope.row)">详情</el-button>
-            </template>
-          </el-table-column>
-        </el-table>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane label="交易查询" name="first">
+            <el-table :data="cartableData" style="width: 100%" stripe class="nonly-secect" border>
+              <el-table-column label="订单名称" prop="date" align="center"></el-table-column>
+              <el-table-column
+                label="付款方式"
+                prop="date"
+                align="center"
+                :render-header="renderHeaderone"
+              ></el-table-column>
+              <el-table-column label="下单时间" prop="date" align="center"></el-table-column>
+              <el-table-column
+                label="交易类别"
+                prop="date"
+                align="center"
+                :render-header="renderHeadertwo"
+              ></el-table-column>
+              <el-table-column label="总金额" prop="date" align="center"></el-table-column>
+              <el-table-column label="优惠金额" prop="date" align="center"></el-table-column>
+              <el-table-column label="交易金额" prop="date" align="center"></el-table-column>
+              <el-table-column label="操作" prop="date" align="center">
+                <template slot-scope="scope">
+                  <el-button @click="refund(scope.row)" type="danger" size="mini">退款</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+          </el-tab-pane>
+          <el-tab-pane label="退款记录" name="second">已失效</el-tab-pane>
+        </el-tabs>
       </el-main>
       <el-footer height="60px" class="ationfooter">
         <el-pagination
@@ -101,7 +117,8 @@ export default {
       ],
       newsprev: "上一页",
       newsNext: "下一页",
-      querytime:'',
+      querytime: "",
+      activeName: "first",
       cartableData: [
         {
           date: "aaaaaaaaaa"
@@ -109,20 +126,27 @@ export default {
       ], //包月车辆业主数据
       currentPage: 1,
       logLevel: "1",
-
+      logLeveltwo: "1"
     };
   },
   methods: {
     querydate(val) {
       console.log(val.date);
     },
+    handleClick(val) {
+      console.log(val);
+    },
+    refund(row){
+      console.log(row);
+      
+    },
     renderHeaderone(h, { column }) {
       let filters = [
         { text: "全部", value: "1" },
-        { text: "在场", value: "2" },
-        { text: "待入场", value: "3" },
-        { text: "待出场", value: "4" },
-        { text: "已离场", value: "5" }
+        { text: "现金", value: "2" },
+        { text: "招行同行", value: "3" },
+        { text: "翼支付", value: "4" },
+        { text: "微信支付", value: "5" }
       ]; //下拉框选项
       return h(
         "el-select",
@@ -151,8 +175,40 @@ export default {
         ]
       );
     },
-
-
+    renderHeadertwo(h, { column }) {
+      let filters = [
+        { text: "全部", value: "1" },
+        { text: "停车费", value: "2" },
+        { text: "包月费", value: "3" },
+        { text: "商家充值", value: "4" },
+        { text: "无牌车预支付", value: "5" }
+      ]; //下拉框选项
+      return h(
+        "el-select",
+        {
+          on: {
+            //el-select实现下拉框
+            input: value => {
+              this.logLeveltwo = value; //随着下拉框的不同，文字框里的内容在变
+            }
+          },
+          props: {
+            value: this.logLeveltwo //文字框的内容取决于这个value，如果value不存在，会报错
+          }
+        },
+        [
+          filters.map(item => {
+            //下拉框里面填充选项，通过filters遍历map，为每一个选项赋值。
+            return h("el-option", {
+              props: {
+                value: item.value,
+                label: item.text
+              }
+            });
+          })
+        ]
+      );
+    },
     /*
      **  @description 页码界面的操作
      **  @param {}
@@ -206,7 +262,7 @@ export default {
       flex: 1;
       padding-right: 10px;
     }
-    .btn-query{
+    .btn-query {
       margin-left: 10px;
     }
   }
@@ -216,6 +272,13 @@ export default {
       text-align: right;
     }
     .el-main {
+      padding-top: 0;
+      p {
+        margin-bottom: 20px;
+        span {
+          color: orangered;
+        }
+      }
       /deep/ .nonly-secect th {
         padding: 0px;
         /deep/ .el-input__inner {

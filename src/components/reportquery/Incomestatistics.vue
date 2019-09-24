@@ -1,5 +1,5 @@
   <template>
-  <el-container>
+  <el-container style="padding:0;">
     <el-aside width="330px">
       <el-container>
         <el-header height="40px">

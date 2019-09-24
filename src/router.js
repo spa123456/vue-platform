@@ -133,6 +133,11 @@ export default new Router({
           name:'watchrecords',
           component:() => import('./components/reportquery/Watchrecords.vue')
         },
+        {
+          path:'/refundmanagement',
+          name:'refundmanagement',
+          component:() => import('./components/transactionmanagement/Refundmanagement.vue')
+        },
       ]
       
     }
