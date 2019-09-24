@@ -144,9 +144,14 @@ export default new Router({
           component:() => import('./components/savingmanagement/Savinginformation.vue')
         },
         {
-          path:'/Rechargerecord',
-          name:'Rechargerecord',
+          path:'/rechargerecord',
+          name:'rechargerecord',
           component:() => import('./components/savingmanagement/Rechargerecord.vue')
+        },
+        {
+          path:'/expensecalendar',
+          name:'expensecalendar',
+          component:() => import('./components/savingmanagement/Expensecalendar.vue')
         },
       ]
       

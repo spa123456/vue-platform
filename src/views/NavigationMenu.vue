@@ -79,8 +79,8 @@
               <span>储蓄卡用户管理</span>
             </template>
             <el-menu-item index="savinginformation">储蓄信息</el-menu-item>
-            <el-menu-item index="Rechargerecord">充值记录</el-menu-item>
-            <el-menu-item index="5-3">消费记录</el-menu-item>
+            <el-menu-item index="rechargerecord">充值记录</el-menu-item>
+            <el-menu-item index="expensecalendar">消费记录</el-menu-item>
           </el-submenu>
 
           <!-- 日志查询 -->
