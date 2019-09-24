@@ -143,6 +143,11 @@ export default new Router({
           name:'savinginformation',
           component:() => import('./components/savingmanagement/Savinginformation.vue')
         },
+        {
+          path:'/Rechargerecord',
+          name:'Rechargerecord',
+          component:() => import('./components/savingmanagement/Rechargerecord.vue')
+        },
       ]
       
     }
