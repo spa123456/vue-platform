@@ -118,6 +118,11 @@ export default new Router({
           name:'incomestatistics',
           component:() => import('./components/reportquery/Incomestatistics.vue')
         },
+        {
+          path:'/monthlystatistics',
+          name:'monthlystatistics',
+          component:() => import('./components/reportquery/Monthlystatistics.vue')
+        },
       ]
       
     }
