@@ -60,7 +60,7 @@
             <el-menu-item index="incomestatistics">收入统计</el-menu-item>
             <el-menu-item index="monthlystatistics">包月统计</el-menu-item>
             <el-menu-item index="parkstatistics">临停统计</el-menu-item>
-            <el-menu-item index="3-5">值班记录</el-menu-item>
+            <el-menu-item index="watchrecords">值班记录</el-menu-item>
           </el-submenu>
 
           <!-- 交易管理 -->

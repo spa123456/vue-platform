@@ -128,6 +128,11 @@ export default new Router({
           name:'parkstatistics',
           component:() => import('./components/reportquery/Parkstatistics.vue')
         },
+        {
+          path:'/watchrecords',
+          name:'watchrecords',
+          component:() => import('./components/reportquery/Watchrecords.vue')
+        },
       ]
       
     }
