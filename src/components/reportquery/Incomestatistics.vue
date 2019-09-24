@@ -27,7 +27,7 @@
               stripe
               @row-click="querydate"
             >
-              <el-table-column prop="date"></el-table-column>
+              <el-table-column prop="date" align="center"></el-table-column>
             </el-table>
           </template>
         </el-main>
@@ -50,38 +50,44 @@
             <el-option value="0" label="日报"></el-option>
             <el-option value="1" label="月报"></el-option>
           </el-select>
-          <el-date-picker v-model="valueday" type="date" placeholder="选择日期" v-if="!selectvalue==0"></el-date-picker>
-          <el-date-picker v-model="valuemouth" type="month" placeholder="选择月"></el-date-picker>
+          <el-date-picker v-model="valueday" type="date" placeholder="选择日期" v-if="selectvalue==0"></el-date-picker>
+          <el-date-picker v-model="valuemouth" type="month" placeholder="选择月" v-else></el-date-picker>
         </div>
         <div>
           <el-button type="primary">查询</el-button>
-          <el-button type="primary">添加</el-button>
+          <el-button type="primary">导出</el-button>
         </div>
       </el-header>
       <el-main>
-        <el-table :data="cartableData" style="width: 100%" stripe border size="mini">
-          <el-table-column label="易错车牌标记" prop="date" align="center"></el-table-column>
-          <el-table-column label="易错车牌对应正确车牌" prop="date" align="center"></el-table-column>
-          <el-table-column label="备注" prop="date" align="center"></el-table-column>
-          <el-table-column label="操作" align="center">
+        <el-table
+          :data="cartableData"
+          style="width: 100%"
+          stripe
+          border
+          size="mini"
+          height="100%"
+          :summary-method="getSummaries"
+          show-summary
+        >
+          <el-table-column label="日期" prop="date" align="center"></el-table-column>
+          <el-table-column label="收入项目" align="center">
+            <el-table-column label="临停" prop="date" align="center"></el-table-column>
+            <el-table-column label="包月" prop="date" align="center"></el-table-column>
+            <el-table-column label="商户充值" prop="date" align="center"></el-table-column>
+          </el-table-column>
+          <el-table-column label="收款通道" align="center">
+            <el-table-column label="现金" prop="date" align="center"></el-table-column>
+            <el-table-column label="招行" prop="date" align="center"></el-table-column>
+            <el-table-column label="微信" prop="date" align="center"></el-table-column>
+            <el-table-column label="支付宝" prop="date" align="center"></el-table-column>
+          </el-table-column>
+          <el-table-column label="合计" align="center">
             <template slot-scope="scope">
-              <el-button size="mini" type="primary " @click="writeplate(scope.row)">编辑</el-button>
-              <el-button size="mini" type="danger ">删除</el-button>
+              <span>{{scope.row.date+scope.row.date+scope.row.date}}</span>
             </template>
           </el-table-column>
         </el-table>
       </el-main>
-      <el-footer height="60px" class="ationfooter">
-        <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="currentPage"
-          :page-sizes="[100, 200, 300, 400]"
-          :page-size="100"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="400"
-        ></el-pagination>
-      </el-footer>
     </el-container>
   </el-container>
 </template>
@@ -93,7 +99,7 @@ export default {
       selectvalue: "0", //查询车主房主车位信息的号码
       tableData: [
         {
-          date: "aaaaaaaaaa"
+          date: "川A.123412"
         }
       ],
       newsprev: "上一页",
@@ -101,36 +107,85 @@ export default {
       activeName: "first",
       cartableData: [
         {
-          date: "aaaaaaaaaa"
+          date: 1111111
+        },
+        {
+          date: 1111111
+        },
+        {
+          date: 1111111
+        },
+        {
+          date: 1111111
+        },
+        {
+          date: 1111111
+        },
+        {
+          date: 1111111
+        },
+        {
+          date: 1111111
         }
       ], //包月车辆业主数据
       currentPage: 1,
-      valueday:"",//change日期选择器
-      valuemouth:'',//change月选择器
+      valueday: "", //change日期选择器
+      valuemouth: "" //change月选择器
     };
   },
   methods: {
     querydate(val) {
       console.log(val.date);
     },
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
-    writeplate(row) {
-      console.log(row);
-    },
     /*
-     **  @description 页码界面的操作
+     **  @description 列表合计方法
      **  @param {}
      **  @return
      **  @author shipingan
      */
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+    getSummaries(param) {
+      const { columns, data } = param;
+      const sums = [];
+      columns.forEach((column, index) => {
+        if (index === 0) {
+          sums[index] = "总价";
+          return;
+        }
+        const values = data.map(item => Number(item[column.property]));
+        if (!values.every(value => isNaN(value))) {
+          sums[index] = values.reduce((prev, curr) => {
+            const value = Number(curr);
+            if (!isNaN(value)) {
+              return prev + curr;
+            } else {
+              return prev;
+            }
+          }, 0);
+          sums[index] += " 元";
+        } else {
+          sums[index] = "";
+        }
+      });
+      return sums;
     }
+  },
+  handleClick(tab, event) {
+    console.log(tab, event);
+  },
+  writeplate(row) {
+    console.log(row);
+  },
+  /*
+   **  @description 页码界面的操作
+   **  @param {}
+   **  @return
+   **  @author shipingan
+   */
+  handleSizeChange(val) {
+    console.log(`每页 ${val} 条`);
+  },
+  handleCurrentChange(val) {
+    console.log(`当前页: ${val}`);
   }
 };
 </script>
@@ -172,6 +227,7 @@ export default {
       padding-right: 10px;
       .el-select {
         width: 100px;
+        margin-right: 10px;
       }
     }
   }
