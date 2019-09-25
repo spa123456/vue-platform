@@ -158,6 +158,11 @@ export default new Router({
           name:'operationlog',
           component:() => import('./components/logquery/Operationlog.vue')
         },
+        {
+          path:'/loginlog',
+          name:'loginlog',
+          component:() => import('./components/logquery/Loginlog.vue')
+        },
       ]
       
     }
