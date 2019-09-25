@@ -100,14 +100,22 @@
           <el-row>
             <el-col :span="4">
               <div class="left-menu">
-                <el-menu mode="horizontal">
+                <!-- <el-menu mode="horizontal">
                   <el-submenu index="4">
                     <template slot="title">我的工作台</template>
                     <el-menu-item index="2-1">选项1</el-menu-item>
                     <el-menu-item index="2-2">选项2</el-menu-item>
                     <el-menu-item index="2-3">选项3</el-menu-item>
                   </el-submenu>
-                </el-menu>
+                </el-menu> -->
+                <el-select v-model="typevalue" class="navselect">
+                  <el-option value="1" label="停车管理系统"></el-option>
+                  <el-option value="2" label="岗亭管理系统"></el-option>
+                  <el-option value="3" label="基础权限管理系统"></el-option>
+                  <el-option value="4" label="工程运维管理系统"></el-option>
+                  <el-option value="5" label="商户应用系统"></el-option>
+                  <el-option value="6" label="平安成都"></el-option>
+                </el-select>
               </div>
             </el-col>
             <el-col :span="4" :offset="16">
@@ -158,6 +166,11 @@
 
 <script>
 export default {
+  data(){
+    return {
+      typevalue:'1',
+    }
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -182,9 +195,17 @@ export default {
 }
 .left-menu {
   width: 200px;
-  .el-menu {
-    border-right-width: 0;
+  .navselect{
+   /deep/ .el-input .el-input__inner{
+      height: 50px;
+      border: none;
+      width: 180px;
+      font-size: 16px;
+    }
   }
+  // .el-menu {
+  //   border-right-width: 0;
+  // }
 }
 .right-menu {
   .el-menu {
