@@ -112,6 +112,9 @@ export default {
       logLeveltwo: "1"
     };
   },
+  updated() {
+    console.log(this.logLevel);
+  },
   methods: {
     querydate(val) {
       console.log(val.date);
@@ -122,41 +125,118 @@ export default {
     refund(row) {
       console.log(row);
     },
-    renderHeaderone(h, { column }) {
-      let filters = [
-        { text: "全部分类", value: "1" },
-        { text: "商户应用", value: "2" },
-        { text: "停车场管理", value: "3" },
-        { text: "交易管理", value: "4" },
-        { text: "储蓄卡用户管理", value: "5" },
-        { text: "岗亭系统", value: "6" }
-      ]; //下拉框选项
-      return h(
-        "el-select",//el-cascader
+    renderHeaderone(h) {
+      let option = [
         {
-          class: "myselect",
-          on: {
-            //el-select实现下拉框
-            input: value => {
-              this.logLevel = value; //随着下拉框的不同，文字框里的内容在变
+          value: "all",
+          label: "全部分类"
+        },
+        {
+          value: "shyy",
+          label: "商户应用",
+          children: [
+            {
+              value: "1",
+              label: "商户信息"
+            },
+            {
+              value: "2",
+              label: "商户赠送"
+            },
+            {
+              value: "3",
+              label: "规则设置"
             }
+          ]
+        },
+        {
+          value: "tccgl",
+          label: "停车场管理",
+          children: [
+            {
+              value: "1",
+              label: "车场信息"
+            },
+            {
+              value: "2",
+              label: "人员管理"
+            },
+            {
+              value: "3",
+              label: "通道管理"
+            },
+            {
+              value: "4",
+              label: "车辆类型"
+            },
+            {
+              value: "5",
+              label: "包月管理"
+            },
+            {
+              value: "6",
+              label: "临停管理"
+            },
+            {
+              value: "7",
+              label: "免费与黑名车辆"
+            },
+            {
+              value: "8",
+              label: "易错车牌"
+            },
+            {
+              value: "9",
+              label: "包月规则"
+            }
+          ]
+        },
+        {
+          value: "jygl",
+          label: "交易管理",
+          children: [
+            {
+              value: "1",
+              label: "交易退款"
+            },
+          ]
+        },
+        {
+          value: "cxkyhgl",
+          label: "储蓄卡用户管理",
+          children: [
+            {
+              value: "1",
+              label: "储户信息"
+            },
+          ]
+        },
+        {
+          value: "gtgl",
+          label: "岗亭管理",
+          children: [
+            {
+              value: "1",
+              label: "实时收费"
+            },
+          ]
+        },
+      ];
+      return h("el-cascader", {
+        on: {
+          input: value => {
+            this.logLevel = value;
           },
-          props: {
-            value: this.logLevel //文字框的内容取决于这个value，如果value不存在，会报错
+          change: () => {
+            console.log(this.logLevel);
+            //此处调用方法
           }
         },
-        [
-          filters.map(item => {
-            //下拉框里面填充选项，通过filters遍历map，为每一个选项赋值。
-            return h("el-option", {
-              props: {
-                value: item.value,
-                label: item.text
-              }
-            });
-          })
-        ]
-      );
+        props: {
+          options: option,
+          value: this.logLevel
+        }
+      });
     },
     renderHeadertwo(h, { column }) {
       let filters = [
@@ -265,9 +345,13 @@ export default {
       }
       /deep/ .nonly-secect th {
         padding: 0px;
+        .el-cascader{
+          height: 40px;
+        }
         /deep/ .el-input__inner {
           padding: 0px;
           border: none;
+          text-align: center;
         }
         /deep/ .el-input__suffix {
           margin-left: 0;
@@ -275,8 +359,8 @@ export default {
       }
     }
   }
-  .myselect{
-      color: red;
+  .myselect {
+    color: red;
   }
 }
 </style>
