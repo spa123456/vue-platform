@@ -18,7 +18,7 @@
           </div>
 
           <!-- 停车场管理 -->
-          <el-submenu index="1">
+          <el-submenu index="1" v-if="typevalue==1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>停车场管理</span>
@@ -38,7 +38,7 @@
           </el-submenu>
 
           <!-- 商户应用 -->
-          <el-submenu index="2">
+          <el-submenu index="2" v-if="typevalue==1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>商户应用</span>
@@ -51,7 +51,7 @@
           </el-submenu>
 
           <!-- 报表查询 -->
-          <el-submenu index="3">
+          <el-submenu index="3" v-if="typevalue==1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>报表查询</span>
@@ -64,7 +64,7 @@
           </el-submenu>
 
           <!-- 交易管理 -->
-          <el-submenu index="4">
+          <el-submenu index="4" v-if="typevalue==1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>交易管理</span>
@@ -73,7 +73,7 @@
           </el-submenu>
 
           <!-- 储蓄卡用户管理 -->
-          <el-submenu index="5">
+          <el-submenu index="5" v-if="typevalue==1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>储蓄卡用户管理</span>
@@ -84,13 +84,98 @@
           </el-submenu>
 
           <!-- 日志查询 -->
-          <el-submenu index="6">
+          <el-submenu index="6" v-if="typevalue==1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>日志查询</span>
             </template>
             <el-menu-item index="operationlog">操作日志</el-menu-item>
             <el-menu-item index="loginlog">登录日志</el-menu-item>
+          </el-submenu>
+
+          <!-- 岗亭管理系统 -->
+          <!-- ======================================== -->
+          <el-submenu index="1" v-if="typevalue==2">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>岗亭系统</span>
+            </template>
+            <el-menu-item index="operationlog">实时收费</el-menu-item>
+            <el-menu-item index="loginlog">车辆查询</el-menu-item>
+          </el-submenu>
+
+          <!-- 基础权限管理系统 -->
+          <!-- 基础权限管理系统=============================== -->
+          <el-submenu index="1" v-if="typevalue==3">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>组织机构管理</span>
+            </template>
+            <el-menu-item index="operationlog">品牌管理</el-menu-item>
+            <el-menu-item index="loginlog">单位管理</el-menu-item>
+            <el-menu-item index="loginlog">角色管理</el-menu-item>
+            <el-menu-item index="loginlog">单位角色管理</el-menu-item>
+            <el-menu-item index="loginlog">人员管理</el-menu-item>
+          </el-submenu>
+          <el-submenu index="1" v-if="typevalue==3">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>基础数据管理</span>
+            </template>
+            <el-menu-item index="operationlog">站点管理</el-menu-item>
+            <el-menu-item index="loginlog">功能菜单</el-menu-item>
+            <el-menu-item index="loginlog">配置参数</el-menu-item>
+            <el-menu-item index="loginlog">登陆日志</el-menu-item>
+            <el-menu-item index="loginlog">数据日志</el-menu-item>
+          </el-submenu>
+
+          <!-- 工程运维管理系统 -->
+          <!-- 工程运维管理系统=============================== -->
+          <el-submenu index="1" v-if="typevalue==4">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>工程运维管理</span>
+            </template>
+            <el-menu-item index="operationlog">停车场管理</el-menu-item>
+            <el-menu-item index="loginlog">通道设置</el-menu-item>
+            <el-menu-item index="loginlog">硬件设置</el-menu-item>
+            <el-menu-item index="loginlog">硬件检查</el-menu-item>
+            <el-menu-item index="loginlog">岗亭维护</el-menu-item>
+            <el-menu-item index="loginlog">支付参数</el-menu-item>
+          </el-submenu>
+          <el-submenu index="1" v-if="typevalue==4">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>支付宝平台</span>
+            </template>
+            <el-menu-item index="operationlog">品牌管理</el-menu-item>
+            <el-menu-item index="loginlog">单位管理</el-menu-item>
+            <el-menu-item index="loginlog">停车场管理</el-menu-item>
+          </el-submenu>
+
+          <!-- 商户应用系统 -->
+          <!-- 商户应用系统=============================== -->
+          <el-submenu index="1" v-if="typevalue==5">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>商户应用管理</span>
+            </template>
+            <el-menu-item index="operationlog">商户信息</el-menu-item>
+            <el-menu-item index="loginlog">充值记录</el-menu-item>
+            <el-menu-item index="loginlog">赠送</el-menu-item>
+            <el-menu-item index="loginlog">赠送记录</el-menu-item>
+          </el-submenu>
+
+          <!-- 平安成都 -->
+          <!-- 平安成都=============================== -->
+          <el-submenu index="1" v-if="typevalue==6">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>嫌疑车辆管理</span>
+            </template>
+            <el-menu-item index="operationlog">嫌疑车辆</el-menu-item>
+            <el-menu-item index="loginlog">车辆轨迹</el-menu-item>
+            <el-menu-item index="loginlog">实时监控</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -100,14 +185,6 @@
           <el-row>
             <el-col :span="4">
               <div class="left-menu">
-                <!-- <el-menu mode="horizontal">
-                  <el-submenu index="4">
-                    <template slot="title">我的工作台</template>
-                    <el-menu-item index="2-1">选项1</el-menu-item>
-                    <el-menu-item index="2-2">选项2</el-menu-item>
-                    <el-menu-item index="2-3">选项3</el-menu-item>
-                  </el-submenu>
-                </el-menu> -->
                 <el-select v-model="typevalue" class="navselect">
                   <el-option value="1" label="停车管理系统"></el-option>
                   <el-option value="2" label="岗亭管理系统"></el-option>
@@ -124,7 +201,7 @@
                   <el-col :span="4">
                     <div class="nav-style">
                       <span>
-                        <router-link tag="span" :to="{path:'login'}">Home</router-link>
+                        <router-link tag="span" :to="{path:'businesspandect'}">Home</router-link>
                       </span>
                     </div>
                   </el-col>
@@ -139,14 +216,19 @@
                     </div>
                   </el-col>
                   <el-col :span="12">
-                    <div class>
-                      <el-menu mode="horizontal">
-                        <el-submenu index="4">
-                          <template slot="title">我的工作台</template>
-                          <el-menu-item index="2-1">选项1</el-menu-item>
-                          <el-menu-item index="2-2">选项2</el-menu-item>
-                        </el-submenu>
-                      </el-menu>
+                    <div class="dropdown">
+                      <el-dropdown>
+                        <span class="el-dropdown-link">
+                          下拉菜单
+                          <i class="el-icon-arrow-down el-icon--right"></i>
+                        </span>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>账户管理</el-dropdown-item>
+                          <el-dropdown-item class="dropdown-item">
+                            <router-link tag="span" :to="{path:'login'}" style="color:red">安全退出</router-link>
+                          </el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
                     </div>
                   </el-col>
                 </el-row>
@@ -166,10 +248,10 @@
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-      typevalue:'1',
-    }
+      typevalue: "1"
+    };
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -195,21 +277,27 @@ export default {
 }
 .left-menu {
   width: 200px;
-  .navselect{
-   /deep/ .el-input .el-input__inner{
+  .navselect {
+    /deep/ .el-input .el-input__inner {
       height: 50px;
       border: none;
       width: 180px;
       font-size: 16px;
     }
   }
-  // .el-menu {
-  //   border-right-width: 0;
-  // }
 }
 .right-menu {
+  min-width: 200px;
   .el-menu {
     border-right-width: 0;
+  }
+  .dropdown{
+    height: 50px;
+    line-height: 48px;
+    text-align: center;
+    .dropdown-item{
+      color: red;
+    }
   }
 }
 .el-header {
@@ -218,7 +306,7 @@ export default {
 .el-main {
   color: #34462c;
   padding: 0;
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(243, 243, 243);
 }
 </style>
 <style lang="less">
@@ -236,12 +324,11 @@ export default {
 .el-menu.el-menu--horizontal {
   border: none;
 }
-.el-submenu .el-menu-item{
+.el-submenu .el-menu-item {
   height: 40px;
   line-height: 40px;
 }
-.routerBx{
-  height:calc(100vh - 50px);//设置子路由组建在模块中的高度
+.routerBx {
+  height: calc(100vh - 50px); //设置子路由组建在模块中的高度
 }
-
 </style>
