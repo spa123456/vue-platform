@@ -163,6 +163,11 @@ export default new Router({
           name:'loginlog',
           component:() => import('./components/logquery/Loginlog.vue')
         },
+        {
+          path:'/sentrysystem',
+          name:'sentrysystem',
+          component:() => import('./components/sentry-system/Sentrysystem.vue')
+        },
       ]
       
     }

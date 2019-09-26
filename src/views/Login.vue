@@ -155,10 +155,10 @@ export default {
               display: block;
               position: absolute;
             }
-            // span:hover{
-            //   color: orangered;
-            //   cursor: pointer;
-            // }
+            span:hover{
+              color: orangered;
+              cursor: pointer;
+            }
             .span1{
               top: 230px;
               left: 210px;

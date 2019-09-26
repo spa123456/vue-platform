@@ -100,7 +100,7 @@
               <i class="el-icon-location"></i>
               <span>岗亭系统</span>
             </template>
-            <el-menu-item index="operationlog">实时收费</el-menu-item>
+            <el-menu-item index="sentrysystem">实时收费</el-menu-item>
             <el-menu-item index="loginlog">车辆查询</el-menu-item>
           </el-submenu>
 
