@@ -99,7 +99,7 @@
               <span>岗亭系统</span>
             </template>
             <el-menu-item index="sentrysystem">实时收费</el-menu-item>
-            <el-menu-item index="loginlog">车辆查询</el-menu-item>
+            <el-menu-item index="carquery">车辆查询</el-menu-item>
           </el-submenu>
 
           <!-- 基础权限管理系统 -->

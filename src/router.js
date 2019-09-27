@@ -168,6 +168,11 @@ export default new Router({
           name:'sentrysystem',
           component:() => import('./components/sentry-system/Sentrysystem.vue')
         },
+        {
+          path:'/carquery',
+          name:'carquery',
+          component:() => import('./components/sentry-system/Carquery.vue')
+        },
       ]
       
     }
