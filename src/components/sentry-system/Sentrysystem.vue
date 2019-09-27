@@ -28,7 +28,7 @@
     </el-header>
     <el-main>
       <div>
-        <el-button size="small" @click="porch()">测试入口</el-button>
+        <el-button size="small" @click="porch()" autofocus>测试入口</el-button>
         <el-button size="small" class="tagbtn" @click="wayout()">测试出口</el-button>
         <span>&nbsp&nbsp</span>
         <el-button
