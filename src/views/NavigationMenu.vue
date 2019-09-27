@@ -9,6 +9,7 @@
           background-color="#34462c"
           text-color="#fff"
           active-text-color="#ffd04b"
+          :default-openeds = menuoptions
           router
         >
           <div style="height:50px;">
@@ -248,7 +249,8 @@
 export default {
   data() {
     return {
-      typevalue: "1"
+      typevalue: "1",
+      menuoptions:['1']
     };
   },
   mounted(){
