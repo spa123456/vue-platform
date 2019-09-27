@@ -6,8 +6,6 @@
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo menu-height"
-          @open="handleOpen"
-          @close="handleClose"
           background-color="#34462c"
           text-color="#fff"
           active-text-color="#ffd04b"
@@ -185,7 +183,7 @@
           <el-row>
             <el-col :span="4">
               <div class="left-menu">
-                <el-select v-model="typevalue" class="navselect">
+                <el-select v-model="typevalue" class="navselect" @change="menuchange()">
                   <el-option value="1" label="停车管理系统"></el-option>
                   <el-option value="2" label="岗亭管理系统"></el-option>
                   <el-option value="3" label="基础权限管理系统"></el-option>
@@ -201,7 +199,7 @@
                   <el-col :span="4">
                     <div class="nav-style">
                       <span>
-                        <router-link tag="span" :to="{path:'businesspandect'}">Home</router-link>
+                        <el-button type="text"  @click="gotohome()">Home</el-button>
                       </span>
                     </div>
                   </el-col>
@@ -254,11 +252,36 @@ export default {
     };
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+    /*
+    **  @description 不同系统改变时展示不同的菜单页面
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    menuchange(){
+      if (this.typevalue == 1) {
+        this.$router.push('businesspandect')
+      }else if (this.typevalue == 2) {
+        this.$router.push('sentrysystem')
+      } else if (this.typevalue == 3) {
+        this.$router.push('businesspandect')
+      }else if (this.typevalue == 4) {
+        this.$router.push('businesspandect')
+      }else if (this.typevalue == 5) {
+        this.$router.push('businesspandect')
+      }else if(this.typevalue == 6) {
+        this.$router.push('businesspandect')
+      }
     },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
+    /*
+    **  @description 顶部导航HOME按钮点击时间
+    **  @param {} 
+    **  @return 
+    **  @author shipingan
+    */
+    gotohome(){
+      this.typevalue = "1"
+      this.$router.push('businesspandect')
     }
   }
 };
@@ -291,11 +314,11 @@ export default {
   .el-menu {
     border-right-width: 0;
   }
-  .dropdown{
+  .dropdown {
     height: 50px;
     line-height: 48px;
     text-align: center;
-    .dropdown-item{
+    .dropdown-item {
       color: red;
     }
   }

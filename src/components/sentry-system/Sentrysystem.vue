@@ -51,14 +51,14 @@
               <p>
                 <el-tag type="success">时</el-tag>
               </p>
-              <p>
-                <el-tag type="danger" v-if="porchoutstatus==2">费</el-tag>
+              <p v-if="porchoutstatus==2">
+                <el-tag type="danger" >费</el-tag>
               </p>
-              <p>
-                <el-tag type="warning" v-if="porchoutstatus==2">抵</el-tag>
+              <p v-if="porchoutstatus==2">
+                <el-tag type="warning" >抵</el-tag>
               </p>
-              <p>
-                <el-tag type="info" v-if="porchoutstatus==2">已</el-tag>
+              <p v-if="porchoutstatus==2">
+                <el-tag type="info" >已</el-tag>
               </p>
             </el-main>
             <el-footer>
@@ -203,7 +203,7 @@ export default {
       max-width: 560px;
       height: 340px;
       margin: 20px 40px 0 0;
-      box-shadow: 1px 1px 1px black;
+      box-shadow: 1px 1px 1px rgb(189, 186, 186);
     }
     .carquery {
       .el-container {
