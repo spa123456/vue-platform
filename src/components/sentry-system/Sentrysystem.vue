@@ -127,7 +127,7 @@
         </div>
       </div>
     </el-main>
-    <transition name="el-zoom-in-bottom">
+    <transition name="el-zoom-in-center">
       <div v-if="beondutyquery==1" class="beondutybx">
         <el-container>
           <el-header height="40px">
@@ -141,20 +141,53 @@
             </el-row>
           </el-header>
           <el-main>
+            <el-row>
+              <el-col :span="8">
+                <div>aaa</div>
+              </el-col>
+              <el-col :span="8">
+                <div>aaa</div>
+              </el-col>
+              <el-col :span="8">
+                <div>aaa</div>
+              </el-col>
+            </el-row>
+          </el-main>
+          <el-footer height="580px">
+            <div class="footerfirstdiv">
               <el-row>
                 <el-col :span="8">
-                  <div>aaa</div>
+                  <p>当班免费放行及异常车辆列表:</p>
                 </el-col>
-                <el-col :span="8">
-                  <div>aaa</div>
-                </el-col>
-                <el-col :span="8">
-                  <div>aaa</div>
+                <el-col :span="16" class="inputbx">
+                  <el-input placeholder="请输入车牌号" size="mini" v-model="carquery"></el-input>
+                  <el-button size="mini" type="success">查询</el-button>
                 </el-col>
               </el-row>
-          </el-main>
-          <el-footer height='580px'>
-            aaaaaaaaaa
+            </div>
+            <div>
+              <el-table :data="tableData" style="width: 100%">
+                <el-table-column prop="date" label="车牌号" align="center"></el-table-column>
+                <el-table-column prop="date" label="入场时间" align="center"></el-table-column>
+                <el-table-column prop="date" label="出场时间" align="center"></el-table-column>
+                <el-table-column
+                  prop="date"
+                  label="类别"
+                  :filters="[{ text: '所有', value: '0' }, { text: '未收费', value: '1' }, { text: '免费放行', value: '2' }]"
+                  filter-placement="bottom-end"
+                  align="center"
+                ></el-table-column>
+                <el-table-column prop="date" label="总额" align="center"></el-table-column>
+                <el-table-column prop="date" label="抵扣" align="center"></el-table-column>
+                <el-table-column prop="date" label="应收" align="center"></el-table-column>
+                <el-table-column prop="date" label="备注" align="center"></el-table-column>
+                <el-table-column label="操作" align="center">
+                  <template slot-scope="scope">
+                    <el-button @click="querycar(scope.row)" size="mini" type="danger">详情</el-button>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </div>
           </el-footer>
         </el-container>
       </div>
@@ -177,7 +210,11 @@ export default {
       radio: "",
       radiotwo: "",
       porchoutstatus: 1,
-      beondutyquery: 0
+      beondutyquery: 0,
+      carquery: "",//异常车辆查询的
+      tableData:[{
+        date:'川B。1111111'
+      }]
     };
   },
   methods: {
@@ -296,13 +333,22 @@ export default {
         text-align: right;
       }
     }
-    .el-main{
-      .el-col{
+    .el-main {
+      .el-col {
         text-align: center;
       }
     }
-    .el-footer{
+    .el-footer {
       border-top: 1px solid #e2e2e2;
+      .footerfirstdiv {
+        padding: 10px;
+        .inputbx {
+          text-align: right;
+          .el-input {
+            width: 200px;
+          }
+        }
+      }
     }
   }
 }
