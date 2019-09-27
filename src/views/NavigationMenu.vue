@@ -9,7 +9,6 @@
           background-color="#34462c"
           text-color="#fff"
           active-text-color="#ffd04b"
-          :default-openeds = "['1']"
           router
         >
           <div style="height:50px;">
