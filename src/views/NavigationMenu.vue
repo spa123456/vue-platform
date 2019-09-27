@@ -9,6 +9,7 @@
           background-color="#34462c"
           text-color="#fff"
           active-text-color="#ffd04b"
+          :default-openeds = "['1']"
           router
         >
           <div style="height:50px;">
@@ -109,13 +110,13 @@
               <i class="el-icon-location"></i>
               <span>组织机构管理</span>
             </template>
-            <el-menu-item index="operationlog">品牌管理</el-menu-item>
+            <el-menu-item index="brandmanagement">品牌管理</el-menu-item>
             <el-menu-item index="loginlog">单位管理</el-menu-item>
             <el-menu-item index="loginlog">角色管理</el-menu-item>
             <el-menu-item index="loginlog">单位角色管理</el-menu-item>
             <el-menu-item index="loginlog">人员管理</el-menu-item>
           </el-submenu>
-          <el-submenu index="1" v-if="typevalue==3">
+          <el-submenu index="2" v-if="typevalue==3">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>基础数据管理</span>
@@ -141,7 +142,7 @@
             <el-menu-item index="loginlog">岗亭维护</el-menu-item>
             <el-menu-item index="loginlog">支付参数</el-menu-item>
           </el-submenu>
-          <el-submenu index="1" v-if="typevalue==4">
+          <el-submenu index="2" v-if="typevalue==4">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>支付宝平台</span>
@@ -251,6 +252,10 @@ export default {
       typevalue: "1"
     };
   },
+  mounted(){
+    this.typevalue = sessionStorage.getItem("key")
+    console.log(this.typevalue);
+  },
   methods: {
     /*
     **  @description 不同系统改变时展示不同的菜单页面
@@ -264,7 +269,7 @@ export default {
       }else if (this.typevalue == 2) {
         this.$router.push('sentrysystem')
       } else if (this.typevalue == 3) {
-        this.$router.push('businesspandect')
+        this.$router.push('brandmanagement')
       }else if (this.typevalue == 4) {
         this.$router.push('businesspandect')
       }else if (this.typevalue == 5) {
@@ -272,6 +277,8 @@ export default {
       }else if(this.typevalue == 6) {
         this.$router.push('businesspandect')
       }
+      //设置一个SS
+      sessionStorage.setItem("key",this.typevalue)
     },
     /*
     **  @description 顶部导航HOME按钮点击时间

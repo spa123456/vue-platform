@@ -173,6 +173,11 @@ export default new Router({
           name:'carquery',
           component:() => import('./components/sentry-system/Carquery.vue')
         },
+        {
+          path:'/brandmanagement',
+          name:'brandmanagement',
+          component:() => import('./components/permissions-management/institutional-framework/Brandmanagement.vue')
+        },
       ]
       
     }
