@@ -1,12 +1,11 @@
 <template>
   <el-container>
-    <el-header height="80px">
+    <el-header class="firstheader" height="80px" v-if="beondutyquery==0">
       <el-row>
         <el-col :span="12">
           <div>
             <span>实时收费</span>
-            <el-button type="primary">车辆查询</el-button>
-            <el-button type="primary">值班详情</el-button>
+            <el-button type="primary" @click="beondutyquery=1">值班详情</el-button>
           </div>
         </el-col>
         <el-col :span="12" class="el-col-right">
@@ -26,10 +25,10 @@
         </el-col>
       </el-row>
     </el-header>
-    <el-main>
+    <el-main v-if="beondutyquery==0">
       <div>
-        <el-button size="small" @click="porch()" autofocus>测试入口</el-button>
-        <el-button size="small" class="tagbtn" @click="wayout()">测试出口</el-button>
+        <el-button size="small" @click="porchoutstatus = 1" autofocus>测试入口</el-button>
+        <el-button size="small" class="tagbtn" @click="porchoutstatus=2">测试出口</el-button>
         <span>&nbsp&nbsp</span>
         <el-button
           @click="opentag()"
@@ -40,7 +39,7 @@
         <el-tag closable @close="closetag()" v-if="selfstate">开启中</el-tag>
       </div>
       <div class="mainimagebx">
-        <div >aaa</div>
+        <div>aaa</div>
         <div v-if="porchoutstatus==2">sss</div>
         <div class="carquery">
           <el-container>
@@ -52,13 +51,13 @@
                 <el-tag type="success">时</el-tag>
               </p>
               <p v-if="porchoutstatus==2">
-                <el-tag type="danger" >费</el-tag>
+                <el-tag type="danger">费</el-tag>
               </p>
               <p v-if="porchoutstatus==2">
-                <el-tag type="warning" >抵</el-tag>
+                <el-tag type="warning">抵</el-tag>
               </p>
               <p v-if="porchoutstatus==2">
-                <el-tag type="info" >已</el-tag>
+                <el-tag type="info">已</el-tag>
               </p>
             </el-main>
             <el-footer>
@@ -84,7 +83,9 @@
         <div class="outdoit">
           <el-row>
             <el-col :span="12">
-              <div> <el-radio v-model="radiotwo" label="1" border="">二次确定</el-radio></div>
+              <div>
+                <el-radio v-model="radiotwo" label="1" border>二次确定</el-radio>
+              </div>
             </el-col>
             <el-col :span="12">
               <div class="outcarquery">
@@ -94,12 +95,16 @@
           </el-row>
           <el-row>
             <el-col :span="24">
-              <div> <el-button type="danger"  class="btnstyle">修正车牌</el-button></div>
+              <div>
+                <el-button type="danger" class="btnstyle">修正车牌</el-button>
+              </div>
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="12">
-              <div> <el-button class="btnstyle" type="warning">免费放行</el-button></div>
+              <div>
+                <el-button class="btnstyle" type="warning">免费放行</el-button>
+              </div>
             </el-col>
             <el-col :span="12">
               <div class="outcarquery">
@@ -109,7 +114,9 @@
           </el-row>
           <el-row>
             <el-col :span="12">
-              <div> <el-button class="btnstyle" type="success">开启通道</el-button></div>
+              <div>
+                <el-button class="btnstyle" type="success">开启通道</el-button>
+              </div>
             </el-col>
             <el-col :span="12">
               <div class="outcarquery">
@@ -120,6 +127,38 @@
         </div>
       </div>
     </el-main>
+    <transition name="el-zoom-in-bottom">
+      <div v-if="beondutyquery==1" class="beondutybx">
+        <el-container>
+          <el-header height="40px">
+            <el-row>
+              <el-col :span="12">
+                <span>值班详情</span>
+              </el-col>
+              <el-col :span="12" class="closei">
+                <i class="el-icon-error" @click="beondutyquery=0"></i>
+              </el-col>
+            </el-row>
+          </el-header>
+          <el-main>
+              <el-row>
+                <el-col :span="8">
+                  <div>aaa</div>
+                </el-col>
+                <el-col :span="8">
+                  <div>aaa</div>
+                </el-col>
+                <el-col :span="8">
+                  <div>aaa</div>
+                </el-col>
+              </el-row>
+          </el-main>
+          <el-footer height='580px'>
+            aaaaaaaaaa
+          </el-footer>
+        </el-container>
+      </div>
+    </transition>
   </el-container>
 </template>
 
@@ -136,17 +175,18 @@ export default {
       ],
       selfstate: false,
       radio: "",
-      radiotwo:'',
-      porchoutstatus:1,
+      radiotwo: "",
+      porchoutstatus: 1,
+      beondutyquery: 0
     };
   },
   methods: {
     /*
-    **  @description 自动切换按钮的改变状态
-    **  @param {} 
-    **  @return 
-    **  @author shipingan
-    */
+     **  @description 自动切换按钮的改变状态
+     **  @param {}
+     **  @return
+     **  @author shipingan
+     */
     opentag() {
       this.selfstate = true;
     },
@@ -154,92 +194,115 @@ export default {
       this.selfstate = false;
     },
     /*
-    **  @description 出口按钮
-    **  @param {} 
-    **  @return 
-    **  @author shipingan
-    */
-    porch(){
-      this.porchoutstatus = 1
+     **  @description 出口按钮
+     **  @param {}
+     **  @return
+     **  @author shipingan
+     */
+    porch() {
+      this.porchoutstatus = 1;
     },
     /*
-    **  @description 入口按钮
-    **  @param {} 
-    **  @return 
-    **  @author shipingan
-    */
-    wayout(){
-      this.porchoutstatus = 2
+     **  @description 入口按钮
+     **  @param {}
+     **  @return
+     **  @author shipingan
+     */
+    wayout() {
+      this.porchoutstatus = 2;
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
-.el-header {
-  border-bottom: 1px solid #ccc;
-  .el-row {
-    padding-top: 20px;
-    .el-button {
-      margin-left: 10px;
-    }
-  }
-  .el-col-right {
-    text-align: right;
-    .el-col-right-div {
-      width: 100%;
-      .el-select {
-        width: 200px;
+.el-container {
+  width: 100%;
+  height: 100%;
+  .firstheader {
+    border-bottom: 1px solid rgb(233, 230, 230);
+    .el-row {
+      padding-top: 20px;
+      .el-button {
+        margin-left: 10px;
       }
     }
-  }
-}
-.el-main {
-  .mainimagebx {
-    display: flex;
-    div {
-      flex: 1;
-      min-width: 500px;
-      max-width: 560px;
-      height: 340px;
-      margin: 20px 40px 0 0;
-      box-shadow: 1px 1px 1px rgb(189, 186, 186);
-    }
-    .carquery {
-      .el-container {
-        height: 100%;
-        p {
-          border-bottom: 1px double rgb(235, 227, 227);
-          padding: 5px;
+    .el-col-right {
+      text-align: right;
+      .el-col-right-div {
+        width: 100%;
+        .el-select {
+          width: 200px;
         }
       }
     }
   }
-  .lastdoitbx {
-    display: flex;
-    .cartype {
-      width: 1080px;
-      margin: 20px 40px 0 0;
-      p {
-        color: rgb(187, 8, 8);
-        font-weight: 700;
-        padding-bottom: 20px;
+  .el-main {
+    .mainimagebx {
+      display: flex;
+      div {
+        flex: 1;
+        min-width: 500px;
+        max-width: 560px;
+        height: 340px;
+        margin: 20px 40px 0 0;
+        box-shadow: 1px 1px 1px rgb(189, 186, 186);
       }
-      .el-radio {
-        background-color: rgb(195, 248, 195);
+      .carquery {
+        .el-container {
+          height: 100%;
+          p {
+            border-bottom: 1px double rgb(235, 227, 227);
+            padding: 5px;
+          }
+        }
       }
     }
-    .outdoit {
-      min-width: 340px;
-      height: 340px;
-      margin: 20px 40px 0 0;
-      .outcarquery{
+    .lastdoitbx {
+      display: flex;
+      .cartype {
+        width: 1080px;
+        margin: 20px 40px 0 0;
+        p {
+          color: rgb(187, 8, 8);
+          font-weight: 700;
+          padding-bottom: 20px;
+        }
+        .el-radio {
+          background-color: rgb(195, 248, 195);
+        }
+      }
+      .outdoit {
+        min-width: 340px;
+        height: 340px;
+        margin: 20px 40px 0 0;
+        .outcarquery {
+          text-align: right;
+        }
+        .btnstyle {
+          margin: 20px 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .beondutybx {
+    width: 100%;
+    height: 100%;
+    .el-header {
+      line-height: 40px;
+      border-bottom: 1px solid #e2e2e2;
+      .closei {
         text-align: right;
       }
-      .btnstyle{
-        margin: 20px 0;
-        width: 100%;
+    }
+    .el-main{
+      .el-col{
+        text-align: center;
       }
+    }
+    .el-footer{
+      border-top: 1px solid #e2e2e2;
     }
   }
 }
