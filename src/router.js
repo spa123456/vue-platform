@@ -188,6 +188,11 @@ export default new Router({
           name:'rolemanagement',
           component:() => import('./components/permissions-management/institutional-framework/Rolemanagement.vue')
         },
+        {
+          path:'/unitrolemanagement',
+          name:'unitrolemanagement',
+          component:() => import('./components/permissions-management/institutional-framework/Unitrolemanagement.vue')
+        },
       ]
       
     }

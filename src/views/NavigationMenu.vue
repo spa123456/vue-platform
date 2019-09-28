@@ -113,7 +113,7 @@
             <el-menu-item index="brandmanagement">品牌管理</el-menu-item>
             <el-menu-item index="unitmanagement">单位管理</el-menu-item>
             <el-menu-item index="rolemanagement">角色管理</el-menu-item>
-            <el-menu-item index="loginlog">单位角色管理</el-menu-item>
+            <el-menu-item index="unitrolemanagement">单位角色管理</el-menu-item>
             <el-menu-item index="loginlog">人员管理</el-menu-item>
           </el-submenu>
           <el-submenu index="2" v-if="typevalue==3">
