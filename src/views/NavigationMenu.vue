@@ -111,8 +111,8 @@
               <span>组织机构管理</span>
             </template>
             <el-menu-item index="brandmanagement">品牌管理</el-menu-item>
-            <el-menu-item index="loginlog">单位管理</el-menu-item>
-            <el-menu-item index="loginlog">角色管理</el-menu-item>
+            <el-menu-item index="unitmanagement">单位管理</el-menu-item>
+            <el-menu-item index="rolemanagement">角色管理</el-menu-item>
             <el-menu-item index="loginlog">单位角色管理</el-menu-item>
             <el-menu-item index="loginlog">人员管理</el-menu-item>
           </el-submenu>
@@ -254,8 +254,7 @@ export default {
     };
   },
   mounted(){
-    this.typevalue = sessionStorage.getItem("key")
-    console.log(this.typevalue);
+    sessionStorage.getItem("key")==undefined?this.typevalue = '1':this.typevalue = sessionStorage.getItem("key");
   },
   methods: {
     /*

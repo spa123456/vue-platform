@@ -178,6 +178,16 @@ export default new Router({
           name:'brandmanagement',
           component:() => import('./components/permissions-management/institutional-framework/Brandmanagement.vue')
         },
+        {
+          path:'/unitmanagement',
+          name:'unitmanagement',
+          component:() => import('./components/permissions-management/institutional-framework/Unitmanagement.vue')
+        },
+        {
+          path:'/rolemanagement',
+          name:'rolemanagement',
+          component:() => import('./components/permissions-management/institutional-framework/Rolemanagement.vue')
+        },
       ]
       
     }
