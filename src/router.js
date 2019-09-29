@@ -193,6 +193,11 @@ export default new Router({
           name:'unitrolemanagement',
           component:() => import('./components/permissions-management/institutional-framework/Unitrolemanagement.vue')
         },
+        {
+          path:'/personnermanagement',
+          name:'personnermanagement',
+          component:() => import('./components/permissions-management/institutional-framework/Personnermanagement.vue')
+        },
       ]
       
     }
