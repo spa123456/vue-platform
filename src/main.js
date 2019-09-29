@@ -6,7 +6,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios';
 import echarts from 'echarts';
-
+// 三级联动区域
+import VDistpicker from 'v-distpicker'
+Vue.component('v-distpicker', VDistpicker)
 /*
 **  @description 防止切换导航是报没有用的错误
 **  @param {} 

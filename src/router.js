@@ -223,6 +223,11 @@ export default new Router({
           name:'datalog',
           component:() => import('./components/permissions-management/base-data-management/Datalog.vue')
         },
+        {
+          path:'/stopcarpark',
+          name:'stopcarpark',
+          component:() => import('./components/engineering-operations/engineering-management-sys/Stopcarpark.vue')
+        },
       ]
       
     }
