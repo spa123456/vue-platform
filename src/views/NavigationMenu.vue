@@ -121,11 +121,11 @@
               <i class="el-icon-location"></i>
               <span>基础数据管理</span>
             </template>
-            <el-menu-item index="operationlog">站点管理</el-menu-item>
-            <el-menu-item index="loginlog">功能菜单</el-menu-item>
-            <el-menu-item index="loginlog">配置参数</el-menu-item>
-            <el-menu-item index="loginlog">登陆日志</el-menu-item>
-            <el-menu-item index="loginlog">数据日志</el-menu-item>
+            <el-menu-item index="sidemanagement">站点管理</el-menu-item>
+            <!-- <el-menu-item index="functionmenu">功能菜单</el-menu-item> -->
+            <el-menu-item index="configurationparameter">配置参数</el-menu-item>
+            <el-menu-item index="loginlogtwo">登陆日志</el-menu-item>
+            <el-menu-item index="datalog">数据日志</el-menu-item>
           </el-submenu>
 
           <!-- 工程运维管理系统 -->

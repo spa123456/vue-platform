@@ -10,10 +10,10 @@
             :value="item.value"
           ></el-option>
         </el-select>
-        <el-input placeholder="请输入用户名或单位名查询" prefix-icon="el-icon-search" v-model="inputvalue"></el-input>
+        <el-input placeholder="请输入参数编码、参数值查询" prefix-icon="el-icon-search" v-model="inputvalue"></el-input>
         <div>
           <el-button type="primary">查询</el-button>
-          <el-button type="primary">新增人员</el-button>
+          <el-button type="primary">新增参数</el-button>
         </div>
       </div>
     </el-header>
@@ -27,14 +27,9 @@
         size="mini"
       >
         <el-table-column label="品牌名称" prop="date" align="center"></el-table-column>
-        <el-table-column label="单位名称" prop="date" align="center"></el-table-column>
-        <el-table-column label="用户名" prop="date" align="center"></el-table-column>
-        <el-table-column label="账号" prop="date" align="center"></el-table-column>
-        <el-table-column label="平台管理员" prop="date" align="center"></el-table-column>
-        <el-table-column label="固定电话" prop="date" align="center"></el-table-column>
-        <el-table-column label="移动电话电话" prop="date" align="center"></el-table-column>
-        <el-table-column label="IP地址" prop="date" align="center"></el-table-column>
-        <el-table-column label="登陆时间" prop="date" align="center"></el-table-column>
+        <el-table-column label="参数编码" prop="date" align="center"></el-table-column>
+        <el-table-column label="参数值" prop="date" align="center"></el-table-column>
+        <el-table-column label="备注" prop="date" align="center"></el-table-column>
         <el-table-column label="操作" align="center" width="180">
           <template slot-scope="scope">
             <el-button type="primary" @click="editquery(scope.row)" size="mini" >编辑</el-button>
@@ -58,7 +53,7 @@ export default {
     };
   },
   methods: {
- 
+
   }
 };
 </script>

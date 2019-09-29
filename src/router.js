@@ -198,6 +198,31 @@ export default new Router({
           name:'personnermanagement',
           component:() => import('./components/permissions-management/institutional-framework/Personnermanagement.vue')
         },
+        {
+          path:'/sidemanagement',
+          name:'sidemanagement',
+          component:() => import('./components/permissions-management/base-data-management/Sidemanagement.vue')
+        },
+        {
+          path:'/functionmenu',
+          name:'functionmenu',
+          component:() => import('./components/permissions-management/base-data-management/Functionmenu.vue')
+        },
+        {
+          path:'/configurationparameter',
+          name:'configurationparameter',
+          component:() => import('./components/permissions-management/base-data-management/Configurationparameter.vue')
+        },
+        {
+          path:'/loginlogtwo',
+          name:'loginlogtwo',
+          component:() => import('./components/permissions-management/base-data-management/Loginlog.vue')
+        },
+        {
+          path:'/datalog',
+          name:'datalog',
+          component:() => import('./components/permissions-management/base-data-management/Datalog.vue')
+        },
       ]
       
     }

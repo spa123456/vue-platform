@@ -10,10 +10,17 @@
             :value="item.value"
           ></el-option>
         </el-select>
-        <el-input placeholder="请输入用户名或单位名查询" prefix-icon="el-icon-search" v-model="inputvalue"></el-input>
+        <el-date-picker
+          v-model="time"
+          type="datetimerange"
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+        ></el-date-picker>
+        <el-input placeholder="请输入单位身份、用户名称查询" prefix-icon="el-icon-search" v-model="inputvalue"></el-input>
         <div>
           <el-button type="primary">查询</el-button>
-          <el-button type="primary">新增人员</el-button>
+          <el-button type="primary">导出</el-button>
         </div>
       </div>
     </el-header>
@@ -26,21 +33,13 @@
         border
         size="mini"
       >
-        <el-table-column label="品牌名称" prop="date" align="center"></el-table-column>
-        <el-table-column label="单位名称" prop="date" align="center"></el-table-column>
+        <el-table-column label="归属名称" prop="date" align="center"></el-table-column>
+        <el-table-column label="单位" prop="date" align="center"></el-table-column>
         <el-table-column label="用户名" prop="date" align="center"></el-table-column>
-        <el-table-column label="账号" prop="date" align="center"></el-table-column>
-        <el-table-column label="平台管理员" prop="date" align="center"></el-table-column>
-        <el-table-column label="固定电话" prop="date" align="center"></el-table-column>
-        <el-table-column label="移动电话电话" prop="date" align="center"></el-table-column>
-        <el-table-column label="IP地址" prop="date" align="center"></el-table-column>
-        <el-table-column label="登陆时间" prop="date" align="center"></el-table-column>
-        <el-table-column label="操作" align="center" width="180">
-          <template slot-scope="scope">
-            <el-button type="primary" @click="editquery(scope.row)" size="mini" >编辑</el-button>
-            <el-button type="danger" size="mini">删除</el-button>
-          </template>
-        </el-table-column>
+        <el-table-column label="操作对象" prop="date" align="center"></el-table-column>
+        <el-table-column label="操作方式" prop="date" align="center"></el-table-column>
+        <el-table-column label="操作时间" prop="date" align="center"></el-table-column>
+        <el-table-column label="参考数据" prop="date" align="center"></el-table-column>
       </el-table>
     </el-main>
   </el-container>
@@ -52,14 +51,13 @@ export default {
     return {
       inputvalue: "",
       payvalue: "",
+      time:'',
       options: [],
       querytime: "",
       cartableData: [{ date: "aaa" }]
     };
   },
-  methods: {
- 
-  }
+  methods: {}
 };
 </script>
 
@@ -71,8 +69,9 @@ export default {
       display: flex;
       .el-input {
         width: 500px;
+        margin-left: 10px;
       }
-      .el-button{
+      .el-button {
         margin-left: 10px;
       }
     }
