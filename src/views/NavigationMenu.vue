@@ -136,7 +136,7 @@
               <span>工程运维管理</span>
             </template>
             <el-menu-item index="stopcarpark">停车场管理</el-menu-item>
-            <el-menu-item index="loginlog">通道设置</el-menu-item>
+            <el-menu-item index="channesettings">通道设置</el-menu-item>
             <el-menu-item index="loginlog">硬件设置</el-menu-item>
             <el-menu-item index="loginlog">硬件检查</el-menu-item>
             <el-menu-item index="loginlog">岗亭维护</el-menu-item>

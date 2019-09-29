@@ -228,6 +228,11 @@ export default new Router({
           name:'stopcarpark',
           component:() => import('./components/engineering-operations/engineering-management-sys/Stopcarpark.vue')
         },
+        {
+          path:'/channesettings',
+          name:'channesettings',
+          component:() => import('./components/engineering-operations/engineering-management-sys/Channesettings.vue')
+        },
       ]
       
     }
