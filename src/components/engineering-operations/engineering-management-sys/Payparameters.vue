@@ -45,7 +45,7 @@
             <p>设置open_id参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入open_id参数" size="medium"></el-input>
+            <el-input placeholder="请输入open_id参数" size="medium" v-model="value1"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -54,7 +54,7 @@
             <p>设置open_key参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入open_key参数" size="medium"></el-input>
+            <el-input placeholder="请输入open_key参数" size="medium" v-model="value2"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -63,7 +63,7 @@
             <p>设置wexin_tag参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入wexin_tag参数" size="medium"></el-input>
+            <el-input placeholder="请输入wexin_tag参数" size="medium" v-model="value3"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -72,7 +72,7 @@
             <p>设置alipay_tag参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入alipay_tag参数" size="medium"></el-input>
+            <el-input placeholder="请输入alipay_tag参数" size="medium" v-model="value4"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -81,7 +81,7 @@
             <p>设置jump_url参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入jump_url参数" size="medium"></el-input>
+            <el-input placeholder="请输入jump_url参数" size="medium" v-model="value5"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -90,7 +90,7 @@
             <p>设置unified_pay_url参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入unified_pay_url参数" size="medium"></el-input>
+            <el-input placeholder="请输入unified_pay_url参数" size="medium" v-model="value6"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -99,7 +99,7 @@
             <p>设置sub_appid参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入sub_appid参数" size="medium"></el-input>
+            <el-input placeholder="请输入sub_appid参数" size="medium" v-model="value7"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -108,7 +108,7 @@
             <p>设置branch_no参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入branch_no参数" size="medium"></el-input>
+            <el-input placeholder="请输入branch_no参数" size="medium" v-model="value8"></el-input>
           </el-col>
         </el-row>
 
@@ -119,7 +119,7 @@
             <p>设置merchant_no参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入merchant_no参数" size="medium"></el-input>
+            <el-input placeholder="请输入merchant_no参数" size="medium" v-model="value9"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -128,7 +128,7 @@
             <p>设置card_type参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入card_type参数" size="medium"></el-input>
+            <el-input placeholder="请输入card_type参数" size="medium" v-model="value10"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -137,7 +137,7 @@
             <p>设置secret_key参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入secret_key参数" size="medium"></el-input>
+            <el-input placeholder="请输入secret_key参数" size="medium" v-model="value11"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -146,7 +146,7 @@
             <p>设置sign_notice_url参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入sign_notice_url参数" size="medium"></el-input>
+            <el-input placeholder="请输入sign_notice_url参数" size="medium" v-model="value12"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -155,7 +155,7 @@
             <p>设置return_url参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入return_urll参数" size="medium"></el-input>
+            <el-input placeholder="请输入return_urll参数" size="medium" v-model="value13"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -164,7 +164,7 @@
             <p>设置expire_time_span参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入expire_time_span参数" size="medium"></el-input>
+            <el-input placeholder="请输入expire_time_span参数" size="medium" v-model="value14"></el-input>
           </el-col>
         </el-row>
 
@@ -175,7 +175,7 @@
             <p>设置smart_url参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入smart_url参数" size="medium"></el-input>
+            <el-input placeholder="请输入smart_url参数" size="medium" v-model="value15"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -184,7 +184,7 @@
             <p>设置smart_sign_notice_url参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入smart_sign_notice_url参数" size="medium"></el-input>
+            <el-input placeholder="请输入smart_sign_notice_url参数" size="medium" v-model="value16"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -193,7 +193,7 @@
             <p>设置smart_private_key参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入smart_private_key参数" size="medium"></el-input>
+            <el-input placeholder="请输入smart_private_key参数" size="medium" v-model="value17"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -202,7 +202,7 @@
             <p>设置smart_app_version参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入smart_app_version参数" size="medium"></el-input>
+            <el-input placeholder="请输入smart_app_version参数" size="medium" v-model="value18"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -211,7 +211,7 @@
             <p>设置smart_merchant_id参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入smart_merchant_id参数" size="medium"></el-input>
+            <el-input placeholder="请输入smart_merchant_id参数" size="medium" v-model="value19"></el-input>
           </el-col>
         </el-row>
         <el-row>
@@ -220,7 +220,7 @@
             <p>设置smart_notice_url参数</p>
           </el-col>
           <el-col :span="12">
-            <el-input placeholder="请输入smart_notice_url参数" size="medium"></el-input>
+            <el-input placeholder="请输入smart_notice_url参数" size="medium" v-model="value20"></el-input>
           </el-col>
         </el-row>
         <div class="btn-bx">
@@ -240,7 +240,27 @@ export default {
           name: "国际停车场"
         }
       ],
-      typeoptions: ""
+      typeoptions: "",
+      value1: "",
+      value2: "",
+      value3: "",
+      value4: "",
+      value5: "",
+      value6: "",
+      value7: "",
+      value8: "",
+      value9: "",
+      value10: "",
+      value11: "",
+      value12: "",
+      value13: "",
+      value14: "",
+      value15: "",
+      value16: "",
+      value17: "",
+      value18: "",
+      value19: "",
+      value20: ""
     };
   }
 };
@@ -291,7 +311,7 @@ export default {
         color: rgb(9, 180, 95);
       }
       .btn-bx {
-          text-align: center;
+        text-align: center;
         .el-button {
           margin: 20px;
           right: 0px;
