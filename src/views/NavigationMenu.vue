@@ -137,10 +137,10 @@
             </template>
             <el-menu-item index="stopcarpark">停车场管理</el-menu-item>
             <el-menu-item index="channesettings">通道设置</el-menu-item>
-            <el-menu-item index="loginlog">硬件设置</el-menu-item>
-            <el-menu-item index="loginlog">硬件检查</el-menu-item>
-            <el-menu-item index="loginlog">岗亭维护</el-menu-item>
-            <el-menu-item index="loginlog">支付参数</el-menu-item>
+            <el-menu-item index="hardwaresetup">硬件设置</el-menu-item>
+            <el-menu-item index="hardwarecheck">硬件检查</el-menu-item>
+            <el-menu-item index="boxmaintenance">岗亭维护</el-menu-item>
+            <el-menu-item index="payparameters">支付参数</el-menu-item>
           </el-submenu>
           <el-submenu index="2" v-if="typevalue==4">
             <template slot="title">
