@@ -159,10 +159,10 @@
               <i class="el-icon-location"></i>
               <span>商户应用管理</span>
             </template>
-            <el-menu-item index="operationlog">商户信息</el-menu-item>
-            <el-menu-item index="loginlog">充值记录</el-menu-item>
-            <el-menu-item index="loginlog">赠送</el-menu-item>
-            <el-menu-item index="loginlog">赠送记录</el-menu-item>
+            <el-menu-item index="businessinformation">商户信息</el-menu-item>
+            <el-menu-item index="payrank">充值记录</el-menu-item>
+            <el-menu-item index="presenter">赠送</el-menu-item>
+            <el-menu-item index="givingrecords">赠送记录</el-menu-item>
           </el-submenu>
 
           <!-- 平安成都 -->
@@ -172,9 +172,9 @@
               <i class="el-icon-location"></i>
               <span>嫌疑车辆管理</span>
             </template>
-            <el-menu-item index="operationlog">嫌疑车辆</el-menu-item>
-            <el-menu-item index="loginlog">车辆轨迹</el-menu-item>
-            <el-menu-item index="loginlog">实时监控</el-menu-item>
+            <el-menu-item index="suspicioncar">嫌疑车辆</el-menu-item>
+            <el-menu-item index="cartrack">车辆轨迹</el-menu-item>
+            <el-menu-item index="realtimemonitoring">实时监控</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -271,11 +271,11 @@ export default {
       } else if (this.typevalue == 3) {
         this.$router.push('brandmanagement')
       }else if (this.typevalue == 4) {
-        this.$router.push('businesspandect')
+        this.$router.push('stopcarpark')
       }else if (this.typevalue == 5) {
-        this.$router.push('businesspandect')
+        this.$router.push('businessinformation')
       }else if(this.typevalue == 6) {
-        this.$router.push('businesspandect')
+        this.$router.push('suspicioncar')
       }
       //设置一个SS
       sessionStorage.setItem("key",this.typevalue)

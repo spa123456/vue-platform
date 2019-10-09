@@ -266,6 +266,21 @@ export default new Router({
           name: 'alipayCarmanagment',
           component: () => import('./components/engineering-operations/alipay-platform/Carmanagment.vue')
         },
+        {
+          path: '/suspicioncar',
+          name: 'suspicioncar',
+          component: () => import('./components/safetychengdu/Suspicioncar.vue')
+        },
+        {
+          path: '/cartrack',
+          name: 'cartrack',
+          component: () => import('./components/safetychengdu/Cartrack.vue')
+        },
+        {
+          path: '/realtimemonitoring',
+          name: 'realtimemonitoring',
+          component: () => import('./components/safetychengdu/Realtimemonitoring.vue')
+        },
       ]
 
     }
