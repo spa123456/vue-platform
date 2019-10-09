@@ -251,6 +251,21 @@ export default new Router({
           name: 'payparameters',
           component: () => import('./components/engineering-operations/engineering-management-sys/Payparameters.vue')
         },
+        {
+          path: '/alipayBrandmanagement',
+          name: 'alipayBrandmanagement',
+          component: () => import('./components/engineering-operations/alipay-platform/Brandmanagement.vue')
+        },
+        {
+          path: '/alipayUnitmanagement',
+          name: 'alipayUnitmanagement',
+          component: () => import('./components/engineering-operations/alipay-platform/Unitmanagement.vue')
+        },
+        {
+          path: '/alipayCarmanagment',
+          name: 'alipayCarmanagment',
+          component: () => import('./components/engineering-operations/alipay-platform/Carmanagment.vue')
+        },
       ]
 
     }

@@ -147,9 +147,9 @@
               <i class="el-icon-location"></i>
               <span>支付宝平台</span>
             </template>
-            <el-menu-item index="operationlog">品牌管理</el-menu-item>
-            <el-menu-item index="loginlog">单位管理</el-menu-item>
-            <el-menu-item index="loginlog">停车场管理</el-menu-item>
+            <el-menu-item index="alipayBrandmanagement">品牌管理</el-menu-item>
+            <el-menu-item index="alipayUnitmanagement">单位管理</el-menu-item>
+            <el-menu-item index="alipayCarmanagment">停车场管理</el-menu-item>
           </el-submenu>
 
           <!-- 商户应用系统 -->
